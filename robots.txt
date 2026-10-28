@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://loicarthur.github.io/sitemap.xml
