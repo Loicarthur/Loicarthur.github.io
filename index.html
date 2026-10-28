@@ -350,39 +350,76 @@ html{scroll-behavior:auto}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
-<div class="zoom node" style="flex: 1; border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; justify-content: center; background: #0D0D0B">
-<span class="mono" style="color: #A19D94; font-size: 11px">Le parcours client</span>
 
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
-<span style="font-weight: 600; font-size: 15px">Décrire son déménagement</span>
-<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">en quelques écrans</span>
-</div>
-<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
-</div>
-
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="node node-acc" style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
-<span style="font-weight: 600; font-size: 15px">Devis automatique</span>
-<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">immédiat</span>
-</div>
-<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
-</div>
-
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
-<span style="font-weight: 600; font-size: 15px">Réservation &amp; paiement</span>
-<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">en ligne</span>
-</div>
-
-</div>
-
-</div>
 <div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
 <span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
 <p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais concevoir un produit de bout en bout et transformer un besoin métier concret en application simple à utiliser.</p>
 </div>
 </div>
+
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 44px; border-top: 1px solid rgba(242,239,232,.12); padding-top: 40px; min-width: 0">
+
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span class="mono" style="color: var(--accent)">Parcours client</span><span style="color: #A19D94; font-size: 14px">Du devis au suivi du déménagement</span></div>
+<div role="list" aria-label="Parcours client" style="display: flex; gap: clamp(14px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; scrollbar-width: thin; scrollbar-color: rgba(242,239,232,.3) transparent">
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-accueil.webp" alt="Accueil Demingo : espace client ou prestataire" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 15px">Choisir son espace</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-adresses.webp" alt="Carte et saisie des points de départ et d’arrivée" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 15px">Indiquer ses adresses</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-inventaire.webp" alt="Inventaire des meubles avec estimation du véhicule" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 15px">Déclarer son inventaire</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-devis.webp" alt="Récapitulatif du déménagement et prix" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 15px">Obtenir son devis</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-suivi.webp" alt="Suivi de la réservation en temps réel" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">05</span><span style="font-weight: 600; font-size: 15px">Suivre son déménagement</span></figcaption>
+</figure>
+
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span class="mono" style="color: var(--accent)">Espace prestataire</span><span style="color: #A19D94; font-size: 14px">De l’inscription à la mission</span></div>
+<div role="list" aria-label="Espace prestataire" style="display: flex; gap: clamp(14px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; scrollbar-width: thin; scrollbar-color: rgba(242,239,232,.3) transparent">
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-pro-inscription.webp" alt="Inscription prestataire : véhicule et documents requis" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 15px">S’inscrire et être vérifié</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-pro-dispo.webp" alt="Disponibilité, plage horaire et zone d’intervention" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 15px">Se rendre disponible</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-pro-missions.webp" alt="Liste des missions disponibles" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 15px">Choisir une mission</span></figcaption>
+</figure>
+
+<figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="phone"><img src="/assets/img/dm-pro-route.webp" alt="Mission en cours, en route vers le client" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 15px">Réaliser la mission</span></figcaption>
+</figure>
+
+</div>
+</div>
+
+</div>
+
 </article>
 
 <article class="proj rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background: #121210; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
@@ -409,6 +446,7 @@ html{scroll-behavior:auto}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+
 <div class="zoom node" style="flex: 1; border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; justify-content: center; background: #0D0D0B">
 <span class="mono" style="color: #A19D94; font-size: 11px">Une campagne</span>
 
@@ -445,11 +483,13 @@ html{scroll-behavior:auto}
 </div>
 
 </div>
+
 <div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
 <span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
 <p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais lancer un SaaS complet seul : produit, paiement, automatisation et conformité.</p>
 </div>
 </div>
+
 </article>
 
 </div>
