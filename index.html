@@ -67,6 +67,10 @@ a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
 @media (max-width:760px){
 .hide-sm{display:none !important}
 .fan{height:440px !important}
+.hero-fig{max-width:300px !important}
+.badge-l{left:10px !important}
+.badge-r{right:10px !important;bottom:96px !important}
+.badge-l{bottom:24px !important}
 .disp{font-stretch:105%}
 }
 @media (prefers-reduced-motion:reduce){
@@ -97,17 +101,21 @@ html{scroll-behavior:auto}
 </header>
 
 <!-- HERO -->
-<section id="top" class="wrap" style="padding-top: clamp(56px, 8vw, 112px); padding-bottom: 48px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: clamp(40px, 5vw, 72px); align-items: center">
-<div style="display: flex; flex-direction: column; gap: 32px; min-width: 0">
+<section id="top" class="wrap" style="padding-top: clamp(40px, 7vw, 96px); padding-bottom: 48px">
+<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: clamp(40px, 5vw, 80px)">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 28px; min-width: 0">
 <div class="mono in" style="display: flex; align-items: center; gap: 10px; color: #A19D94">
 <span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent)"></span>
 <span>En recherche d'un CDI · Paris · Mobile en France</span>
 </div>
-<h1 class="disp in d1" style="font-size: clamp(48px, 7.4vw, 104px)">Je conçois, développe et <span style="color: var(--accent)">pilote</span> des produits digitaux.</h1>
-<p class="in d2" style="margin: 0; max-width: 560px; font-size: clamp(17px, 1.5vw, 20px); color: #CFCBC2; text-wrap: pretty">De l'idée à la mise en production. Développeur full stack et chef de projet, je cadre le besoin, j'organise le travail, j'écris le code et je livre. Dernière preuve en date : <strong style="color: #F2EFE8; font-weight: 600">Sankéa</strong>, une marketplace mobile que j'ai fondée, développée et publiée sur l'App Store.</p>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span class="in d1" style="font-size: clamp(18px, 1.6vw, 22px); color: #CFCBC2">Bonjour, je suis</span>
+<h1 class="disp in d1" style="font-size: clamp(56px, 8.4vw, 120px); letter-spacing: -.045em">Loïc Tchuenkam</h1>
+<p class="in d2" style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: -.02em; line-height: 1.15; color: var(--accent)">Développeur full stack &amp; chef de projet</p>
+</div>
+<p class="in d2" style="margin: 0; max-width: 580px; font-size: clamp(17px, 1.5vw, 20px); color: #E6E2D9; text-wrap: pretty">Je conçois, développe et pilote des produits digitaux, de l'idée à la mise en production. En dernière année de Master Lead Développeur, j'ai été chef de projet chez Decotec, développeur full stack chez Tradespotting, et j'ai fondé <strong style="color: #F2EFE8; font-weight: 600">Sankéa</strong>, une app mobile publiée sur l'App Store.</p>
 <div class="in d3" style="display: flex; flex-wrap: wrap; gap: 12px">
-<a href="/sankea/" class="btn">Voir le case study Sankéa <span aria-hidden="true">→</span></a>
+<a href="#projets" class="btn">Voir mes projets <span aria-hidden="true">→</span></a>
 <a href="/Loic_Tchuenkam_FlowCV_Resume_2026-04-28.pdf" class="btn-ghost">Télécharger le CV</a>
 </div>
 <div class="in d4 mono" style="display: flex; flex-wrap: wrap; gap: 8px 20px; color: #A19D94; font-size: 11px">
@@ -115,18 +123,14 @@ html{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="fan in d3" style="position: relative; height: 640px; min-width: 0" aria-label="Écrans réels de l'application Sankéa" role="img">
-<div class="fl2" style="position: absolute; left: 0; top: 90px; width: 40%; z-index: 1">
-<div class="phone" style="transform: rotate(-7deg)"><img src="/assets/img/sk-salon.webp" alt="" loading="eager"></div>
+<figure class="in d2 hero-fig" style="flex: 0 1 420px; margin: 0 auto; position: relative; width: 100%; max-width: 420px">
+<div style="position: relative">
+<div style="position: absolute; inset: 14px; transform: translate(14px, 14px); border: 1px solid var(--accent); border-radius: 32px" aria-hidden="true"></div>
+<img src="/assets/img/loic-portrait.webp" alt="Portrait de Loïc Tchuenkam" loading="eager" style="position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 32px; filter: grayscale(1) contrast(1.05)">
+<div class="fl1 badge-l" style="position: absolute; left: -18px; bottom: 56px; display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 16px; background: rgba(13,13,11,.88); border: 1px solid rgba(242,239,232,.16); backdrop-filter: blur(8px)"><span class="mono" style="color: var(--accent); font-size: 10px">Decotec</span><span style="font-weight: 600; font-size: 14px">Chef de projet</span></div>
+<div class="fl2 badge-r" style="position: absolute; right: -18px; bottom: 150px; display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 16px; background: rgba(13,13,11,.88); border: 1px solid rgba(242,239,232,.16); backdrop-filter: blur(8px)"><span class="mono" style="color: #8FE3AE; font-size: 10px">Sankéa · App Store</span><span style="font-weight: 600; font-size: 14px">Fondateur</span></div>
 </div>
-<div class="fl1" style="position: absolute; left: 29%; top: 0; width: 44%; z-index: 3">
-<div class="phone"><img src="/assets/img/sk-accueil.webp" alt="" loading="eager"></div>
-</div>
-<div class="fl3" style="position: absolute; right: 0; top: 120px; width: 40%; z-index: 2">
-<div class="phone" style="transform: rotate(6deg)"><img src="/assets/img/sk-creneaux.webp" alt="" loading="eager"></div>
-</div>
-<div class="mono" style="position: absolute; left: 0; bottom: 0; color: #A19D94; font-size: 11px">Sankéa — écrans réels, iOS</div>
-</div>
+</figure>
 </div>
 
 <!-- PIPELINE -->
@@ -172,20 +176,10 @@ html{scroll-behavior:auto}
 
 <!-- 01 PROFIL -->
 <section class="wrap" style="padding-top: clamp(80px, 10vw, 150px); padding-bottom: clamp(40px, 6vw, 80px)">
-<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center">
-<figure style="margin: 0 auto; justify-self: center; align-self: center; position: relative; max-width: 420px; width: 100%">
-<div style="position: relative">
-<div style="position: absolute; inset: 14px; transform: translate(14px, 14px); border: 1px solid var(--accent); border-radius: 28px" aria-hidden="true"></div>
-<img src="/assets/img/loic-portrait.webp" alt="Portrait de Loïc Tchuenkam" loading="lazy" style="position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 28px; filter: grayscale(1) contrast(1.05)">
-</div>
-<figcaption class="mono" style="position: relative; margin-top: 28px; display: flex; justify-content: space-between; gap: 12px; color: #A19D94; font-size: 11px"><span>Loïc Tchuenkam</span><span>Paris</span></figcaption>
-</figure>
-<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div class="rv" style="display: flex; flex-direction: column; gap: 20px; max-width: 900px">
 <span class="mono" style="color: #A19D94">01 — Profil</span>
 <h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Dans le code <span style="color: #6E6A62">et</span> dans le pilotage.</h2>
-<p style="margin: 0; font-size: 18px; color: #E6E2D9; max-width: 620px; text-wrap: pretty">Je m'appelle Loïc Tchuenkam. En dernière année de Master Lead Développeur, j'ai été chef de projet chez Decotec, développeur full stack chez Tradespotting, et j'ai fondé Sankéa, que j'ai mené seul de l'idée jusqu'à l'App Store.</p>
-<p style="margin: 0; font-size: 16px; color: #A19D94; max-width: 620px; text-wrap: pretty">Mon profil tient en trois dimensions complémentaires, chacune démontrée par un projet réel plutôt que par un adjectif.</p>
-</div>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 680px; text-wrap: pretty">Trois dimensions complémentaires, chacune démontrée par un projet réel plutôt que par un adjectif.</p>
 </div>
 <div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1px; background: rgba(242,239,232,.12); border: 1px solid rgba(242,239,232,.12); border-radius: 24px; overflow: hidden">
 
