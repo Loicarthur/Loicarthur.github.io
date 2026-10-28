@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D0D0B">
+<meta name="author" content="Loïc Tchuenkam">
+<link rel="canonical" href="https://loicarthur.github.io/sankea/">
+<meta property="og:url" content="https://loicarthur.github.io/sankea/">
+<meta property="og:image" content="https://loicarthur.github.io/assets/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<title>Sankéa — Case study · Loïc Tchuenkam</title>
+<meta name="description" content="Case study Sankéa : marketplace mobile de réservation de coiffure afro. Le problème, le produit, les parcours et mon rôle.">
+<meta property="og:title" content="Sankéa — Case study">
+<meta property="og:description" content="De l'idée à l'App Store : le produit et mon rôle de fondateur.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0D0D0B}
+html{scroll-behavior:smooth}
+a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
+*{box-sizing:border-box}
+::selection{background:var(--accent);color:#0D0D0B}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,64px)}
+.mono{font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.disp{font-family:'Archivo','Arial Narrow',Arial,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.035em;line-height:.92;margin:0}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border:1px solid rgba(242,239,232,.16);border-radius:999px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#D8D4CB;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--accent);color:#0D0D0B;font-weight:600;font-size:15px;transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{color:#0D0D0B;transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--accent)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1px solid rgba(242,239,232,.28);color:#F2EFE8;font-weight:500;font-size:15px}
+.btn-ghost:hover{border-color:#F2EFE8;color:#F2EFE8;background:rgba(242,239,232,.06)}
+.phone{border-radius:40px;padding:7px;background:#1C1C19;border:1px solid rgba(242,239,232,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.phone img{display:block;width:100%;height:auto;border-radius:33px}
+.arrow-li{display:flex;gap:12px;align-items:baseline}
+.arrow-li::before{content:"→";color:var(--accent);font-family:'Geist Mono',monospace;flex:none}
+.node{border:1px solid rgba(242,239,232,.18);border-radius:16px;padding:16px 18px;background:#11110F;display:flex;flex-direction:column;gap:6px}
+.node-acc{border-color:var(--accent);background:rgba(255,122,47,.07)}
+.sec-h{display:flex;flex-direction:column;gap:18px;max-width:920px}
+.strip{display:flex;gap:clamp(16px,2.4vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 28px;scrollbar-width:thin;scrollbar-color:rgba(242,239,232,.3) transparent}
+.strip>figure{scroll-snap-align:start;flex:0 0 clamp(200px,22vw,260px);margin:0;display:flex;flex-direction:column;gap:16px}
+.strip .phone{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.strip>figure:hover .phone{transform:translateY(-10px)}
+.rule{border-top:1px solid rgba(242,239,232,.14);padding:28px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px 40px}
+.vline{width:2px;height:28px;background:linear-gradient(var(--accent),rgba(255,122,47,.2));margin:0 auto}
+.grid-bg{background-image:linear-gradient(rgba(242,239,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,232,.045) 1px,transparent 1px);background-size:56px 56px}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes flow{from{background-position:0 0}to{background-position:0 24px}}
+.in{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.45s}
+.fl1{animation:float 7s ease-in-out infinite}.fl2{animation:float 8s ease-in-out -3s infinite}
+.dot{animation:pulse 2.4s ease-in-out infinite}
+.pipe{width:2px;height:40px;margin:0 auto;background-image:linear-gradient(var(--accent) 50%,transparent 50%);background-size:2px 12px;animation:flow 1.2s linear infinite}
+@supports (animation-timeline: view()){
+.rv{animation:up linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+.px-up{animation:pxu linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+@keyframes pxu{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
+}
+@media (max-width:760px){.hide-sm{display:none !important}.disp{font-stretch:105%}.hero-phones{height:460px !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<div style="--accent: #FF7A2F; background: #0D0D0B; color: #F2EFE8; font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(13,13,11,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(242,239,232,.08)">
+<nav class="wrap" aria-label="Navigation du case study" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px">
+<a href="/" style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 44px"><span aria-hidden="true">←</span> Loïc Tchuenkam</a>
+<div class="hide-sm mono" style="display: flex; gap: 22px; font-size: 11px; color: #A19D94">
+<a href="#probleme">01 Problème</a><a href="#produit">03 Produit</a><a href="#ux">04 UX</a><a href="#role">05 Rôle</a>
+</div>
+<a href="/#contact" class="btn" style="min-height: 44px; padding: 0 18px; font-size: 14px">Me contacter</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="wrap grid-bg" style="padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 6vw, 80px)">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: clamp(40px, 5vw, 72px); align-items: center">
+<div style="display: flex; flex-direction: column; gap: 28px; min-width: 0">
+<div class="in" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<img src="/assets/img/sk-logo-white.png" alt="Logo Sankéa" style="width: 44px; height: 44px">
+<span class="mono" style="color: #A19D94">Case study · Projet phare</span>
+<span class="chip" style="border-color: rgba(92,214,140,.4); color: #8FE3AE"><span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #5CD68C; margin-right: 8px"></span>En ligne sur l'App Store</span>
+</div>
+<h1 class="disp in d1" style="font-size: clamp(72px, 12vw, 184px); letter-spacing: -.05em">SANKÉA</h1>
+<p class="in d2" style="margin: 0; font-size: clamp(20px, 2vw, 26px); color: #F2EFE8; max-width: 600px; text-wrap: pretty; font-weight: 500">Une marketplace mobile pour réserver une coiffure afro : les clientes trouvent, comparent, réservent et paient, les coiffeuses gèrent leur salon et sont payées.</p>
+<p class="in d3" style="margin: 0; font-size: 16px; color: #A19D94; max-width: 600px; text-wrap: pretty">J'ai fondé Sankéa et je l'ai conçu, développé et publié : app mobile, back-office, backend, paiements, lancement.</p>
+<dl class="in d4" style="margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); gap: 20px; border-top: 1px solid rgba(242,239,232,.14); padding-top: 24px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Rôle</dt><dd style="margin: 0; font-weight: 600">Fondateur · Project Lead · Tech Lead · Full Stack</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Période</dt><dd style="margin: 0; font-weight: 600">10/2024 → aujourd'hui</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Plateformes</dt><dd style="margin: 0; font-weight: 600">iOS · Android à venir · Web admin</dd></div>
+</dl>
+</div>
+<div class="hero-phones in d2" style="position: relative; height: 640px; min-width: 0" role="img" aria-label="Écran d'ouverture et choix de l'univers client ou pro dans Sankéa">
+<div class="fl2" style="position: absolute; left: 4%; top: 60px; width: 44%"><div class="phone" style="transform: rotate(-5deg)"><img src="/assets/img/sk-splash.webp" alt="" loading="eager"></div></div>
+<div class="fl1" style="position: absolute; right: 4%; top: 0; width: 46%"><div class="phone" style="transform: rotate(4deg)"><img src="/assets/img/sk-univers.webp" alt="" loading="eager"></div></div>
+</div>
+</div>
+</section>
+
+<!-- READING LEVELS -->
+<section class="wrap" style="padding-top: 24px">
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); border: 1px solid rgba(242,239,232,.14); border-radius: 20px; overflow: hidden">
+<div style="padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; border-right: 1px solid rgba(242,239,232,.1)"><span class="mono" style="color: var(--accent); font-size: 11px">Niveau 1 · Simple</span><span style="font-size: 15px; color: #E6E2D9">Une app pour réserver sa coiffure afro et payer en ligne.</span></div>
+<div style="padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; border-right: 1px solid rgba(242,239,232,.1)"><span class="mono" style="color: var(--accent); font-size: 11px">Niveau 2 · Pro</span><span style="font-size: 15px; color: #E6E2D9">Une marketplace biface, avec commission, acomptes et virements aux salons.</span></div>
+<div style="padding: 22px 24px; display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: var(--accent); font-size: 11px">Niveau 3 · Technique</span><span style="font-size: 15px; color: #E6E2D9">App mobile, back-office web et paiement en ligne sécurisé.</span></div>
+</div>
+</section>
+
+<!-- 01 PROBLEM -->
+<section id="probleme" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">01 — The problem</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Réserver une coiffure afro, c'est encore du bricolage.</h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 20px">
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 24px; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px">
+<span class="mono" style="color: var(--accent)">Côté clientes</span>
+<span class="arrow-li" style="font-size: 17px">Trouver une coiffeuse qui maîtrise le bon style passe par Instagram et le bouche-à-oreille</span>
+<span class="arrow-li" style="font-size: 17px">Prix et durées rarement affichés, réservation par messages privés</span>
+<span class="arrow-li" style="font-size: 17px">Acomptes envoyés par virement, sans garantie</span>
+</div>
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 24px; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px">
+<span class="mono" style="color: var(--accent)">Côté coiffeuses</span>
+<span class="arrow-li" style="font-size: 17px">Agenda tenu à la main, entre DM et appels</span>
+<span class="arrow-li" style="font-size: 17px">No-shows coûteux sur des prestations de plusieurs heures</span>
+<span class="arrow-li" style="font-size: 17px">Du temps perdu en logistique au lieu de coiffer</span>
+</div>
+</div>
+</section>
+
+<!-- 02 IDEA -->
+<section class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">02 — The idea</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Un seul endroit, <span style="color: var(--accent)">deux côtés</span> du marché.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 700px; text-wrap: pretty">Une marketplace où la cliente réserve et paie en quelques écrans, et où la coiffeuse reçoit des réservations déjà sécurisées par un acompte.</p>
+</div>
+<div class="rv" style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px; align-items: stretch">
+<div class="node" style="padding: 28px"><span class="mono" style="color: #A19D94; font-size: 11px">Demande</span><span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 28px">Clientes</span><span style="color: #CFCBC2; font-size: 15px">Femmes, hommes et enfants. Recherche par style, comparaison, réservation, paiement, avis.</span></div>
+<div class="node node-acc" style="padding: 28px; justify-content: center"><span class="mono" style="color: var(--accent); font-size: 11px">Plateforme</span><span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 28px">Sankéa</span><span style="color: #E6E2D9; font-size: 15px">Recherche, réservation, paiement en ligne et vérification des pros.</span></div>
+<div class="node" style="padding: 28px"><span class="mono" style="color: #A19D94; font-size: 11px">Offre</span><span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 28px">Coiffeuses & salons</span><span style="color: #CFCBC2; font-size: 15px">Indépendantes ou salons. Services, tarifs, agenda, équipe, revenus et virements.</span></div>
+</div>
+</section>
+
+<!-- 03 PRODUCT -->
+<section id="produit" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">03 — The product</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Quatre espaces, une seule base de code.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 700px; text-wrap: pretty">Chaque rôle a son propre parcours, mais tous partagent le même catalogue de coiffures : ce que la cliente cherche correspond exactement à ce que la pro propose.</p>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr)); gap: 16px">
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Espace 01</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 26px; letter-spacing: -.02em">Cliente</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Recherche par style, ville ou note, fiches salons vérifiées, réservation, paiement, favoris, messagerie et avis.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Espace 02</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 26px; letter-spacing: -.02em">Coiffeuse indépendante</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Portfolio, services et tarifs, lieux de prestation, réservations, vérification d’identité, compte de paiement.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Espace 03</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 26px; letter-spacing: -.02em">Salon</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Tableau de bord, réservations, services, avis, paiements et réglages.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Espace 04</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 26px; letter-spacing: -.02em">Administration</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Back-office web : salons, vérifications, réservations, paiements, support.</span>
+</div>
+
+</div>
+<div class="rv" style="margin-top: 16px; border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 24px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Trois lieux de prestation</span>
+<span style="font-weight: 600">En salon</span><span aria-hidden="true" style="color: #6E6A62">·</span><span style="font-weight: 600">À domicile</span><span aria-hidden="true" style="color: #6E6A62">·</span><span style="font-weight: 600">Chez la coiffeuse</span>
+<span style="color: #A19D94; font-size: 14px">avec un montant minimum de déplacement fixé par la pro</span>
+</div>
+</section>
+
+<!-- 04 UX -->
+<section id="ux" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="wrap">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">04 — User experience</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">De l'envie à la réservation payée, en six écrans.</h2>
+<p style="margin: 0; font-size: 16px; color: #A19D94">Écrans réels de l'app en production. Faites défiler horizontalement.</p>
+</div>
+</div>
+<div class="wrap" style="margin-top: 40px">
+<div class="mono" style="color: var(--accent); margin-bottom: 20px">Parcours cliente</div>
+<div class="strip" role="list" aria-label="Parcours cliente">
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-univers.webp" alt="Écran de choix entre espace client et espace pro" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">01</span>
+<span style="font-weight: 600; font-size: 16px">Choisir son univers</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Espace client ou espace pro dès l’ouverture.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-accueil.webp" alt="Accueil avec catégories de coiffures et salons populaires" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">02</span>
+<span style="font-weight: 600; font-size: 16px">Explorer</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Catégories de coiffures, salons populaires, recherche par style.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-salon.webp" alt="Fiche salon avec badges vérifié et instantané" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">03</span>
+<span style="font-weight: 600; font-size: 16px">Choisir un salon</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Badges vérifié et instantané, note, public accueilli.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-services.webp" alt="Liste des services avec prix et durées" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">04</span>
+<span style="font-weight: 600; font-size: 16px">Comparer les services</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Prix et durée affichés pour chaque prestation.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-creneaux.webp" alt="Sélection du type de cheveux, de la date et du créneau" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">05</span>
+<span style="font-weight: 600; font-size: 16px">Réserver un créneau</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Type de cheveux (optionnel), date et heure disponibles.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/sk-paiement.webp" alt="Récapitulatif et paiement sécurisé par Stripe" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">06</span>
+<span style="font-weight: 600; font-size: 16px">Payer en sécurité</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Détail du prix, frais de service, paiement Stripe.</span>
+</figcaption>
+</figure>
+
+</div>
+</div>
+<div class="wrap" style="margin-top: 64px">
+<div class="mono" style="color: var(--accent); margin-bottom: 20px">Parcours coiffeuse / salon</div>
+<div class="strip" role="list" aria-label="Parcours coiffeuse">
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/pro-dashboard.webp" alt="Tableau de bord du salon avec revenus du mois" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">01</span>
+<span style="font-weight: 600; font-size: 16px">Piloter son activité</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Revenu du mois, rendez-vous, chiffre d’affaires, note, période d’essai.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/pro-rdv.webp" alt="Liste des réservations avec détail de l’encaissement" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">02</span>
+<span style="font-weight: 600; font-size: 16px">Gérer les réservations</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">À venir, en attente, terminées. Encaissement détaillé, chat, fin de prestation.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/pro-wallet.webp" alt="Portefeuille avec solde et bouton de demande de virement" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">03</span>
+<span style="font-weight: 600; font-size: 16px">Être payée</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Solde net et demande de virement, sous seuil et délai affichés.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/pro-lieu.webp" alt="Choix des lieux de prestation" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">04</span>
+<span style="font-weight: 600; font-size: 16px">Choisir où coiffer</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">En salon, à domicile ou chez soi, avec un minimum de déplacement.</span>
+</figcaption>
+</figure>
+
+<figure role="listitem">
+<div class="phone"><img src="/assets/img/pro-audience.webp" alt="Préférences de réservation instantanée et de clientèle acceptée" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: var(--accent); font-size: 11px">05</span>
+<span style="font-weight: 600; font-size: 16px">Régler ses préférences</span>
+<span style="color: #A19D94; font-size: 14px; text-wrap: pretty">Réservation instantanée ou validation manuelle, clientèle acceptée.</span>
+</figcaption>
+</figure>
+
+</div>
+</div>
+</section>
+
+<!-- 07 MY ROLE -->
+<section id="role" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">05 — My role</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Trois casquettes, un seul projet.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 720px; text-wrap: pretty">J'ai porté le projet de bout en bout. Au-delà du code, j'ai pris les décisions de produit, d'architecture et de priorité.</p>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px">
+
+<article class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 24px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px">
+<span class="mono" style="color: var(--accent)">Project Lead</span>
+<h3 class="disp" style="font-size: 34px">Je décide quoi construire.</h3>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">La vision et le périmètre du produit</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Les priorités et les arbitrages</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">L’accompagnement des salons partenaires</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Le lancement</span>
+</div>
+</article>
+
+<article class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 24px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px">
+<span class="mono" style="color: var(--accent)">Technical Lead</span>
+<h3 class="disp" style="font-size: 34px">Je décide comment.</h3>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Les choix d’architecture</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">La sécurité et la qualité</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Le suivi en production</span>
+</div>
+</article>
+
+<article class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 24px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px">
+<span class="mono" style="color: var(--accent)">Full Stack Developer</span>
+<h3 class="disp" style="font-size: 34px">Je le construis.</h3>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">L’application mobile</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Le back-office</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">La publication sur l’App Store</span>
+</div>
+</article>
+
+</div>
+<div class="rv" style="margin-top: 16px; border-radius: 24px; background: #F2EFE8; color: #0D0D0B; padding: clamp(24px, 3vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 24px">
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 14px; display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #55524B; font-size: 11px">Organisation</span>
+<span style="font-size: 15px; color: #23211D; text-wrap: pretty">Branches séparées pour le développement et la production, CI à chaque push et pull request.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 14px; display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #55524B; font-size: 11px">Priorités</span>
+<span style="font-size: 15px; color: #23211D; text-wrap: pretty">Un backlog vivant : les urgences d’abord, le reste documenté pour ne rien perdre.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 14px; display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #55524B; font-size: 11px">Délais</span>
+<span style="font-size: 15px; color: #23211D; text-wrap: pretty">Builds et soumissions automatisés pour livrer sans étape manuelle risquée.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 14px; display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #55524B; font-size: 11px">Problèmes</span>
+<span style="font-size: 15px; color: #23211D; text-wrap: pretty">Chaque incident est diagnostiqué jusqu’à la cause, puis transformé en garde-fou.</span>
+</div>
+
+</div>
+</section>
+
+<!-- 08 RESULT -->
+<section class="wrap" style="padding-top: clamp(110px, 14vw, 190px); padding-bottom: 64px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 22px">
+<span class="mono" style="color: #A19D94">06 — Result</span>
+<h2 class="disp" style="font-size: clamp(44px, 7.4vw, 112px); letter-spacing: -.045em">Un produit réel, <span style="color: var(--accent)">en production.</span></h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce qui est livré</span>
+<span class="arrow-li" style="font-size: 17px">Application iOS publiée sur l'App Store</span>
+<span class="arrow-li" style="font-size: 17px">Back-office d'administration en ligne</span>
+<span class="arrow-li" style="font-size: 17px">Site vitrine optimisé pour le SEO, qui convertit vers l'App Store</span>
+<span class="arrow-li" style="font-size: 17px">Premiers salons partenaires vérifiés et onboardés</span>
+</div>
+<div class="rv" style="border: 1px solid var(--accent); border-radius: 24px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ce projet démontre</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">Gestion de projet</span><span class="chip">Conception produit</span><span class="chip">Développement full stack</span><span class="chip">Architecture applicative</span><span class="chip">Intégration de services tiers</span><span class="chip">Paiements & conformité</span><span class="chip">Résolution de problèmes</span><span class="chip">Compréhension métier</span>
+</div>
+<p style="margin: 6px 0 0; font-size: 18px; color: #F2EFE8; text-wrap: pretty">Je peux être opérationnel sur un projet, techniquement mais aussi humainement et organisationnellement, de l'idée jusqu'aux utilisateurs.</p>
+</div>
+</div>
+<div class="rv" style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://apps.apple.com/fr/app/sank%C3%A9a/id6766547853" class="btn">Voir sur l'App Store <span aria-hidden="true">↗</span></a>
+<a href="/#projets" class="btn-ghost">Autres projets</a>
+<a href="/#contact" class="btn-ghost">Me contacter</a>
+</div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,270 +1,839 @@
-<!DOCTYPE html>
-<html lang="en" class="astro-37FXCHFA">
-	<head>
-		<meta charset="UTF-8">
-<meta name="description" property="og:description" content="The personal site of Loic">
-<meta name="viewport" content="width=device-width">
-<meta name="generator" content="Astro v2.3.0">
-<title>Loic Tchuenkam: Personal Portfolio</title>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D0D0B">
+<meta name="author" content="Loïc Tchuenkam">
+<link rel="canonical" href="https://loicarthur.github.io/">
+<meta property="og:url" content="https://loicarthur.github.io/">
+<meta property="og:image" content="https://loicarthur.github.io/assets/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Loïc Tchuenkam","jobTitle":"Développeur full stack & chef de projet","url":"https://loicarthur.github.io/","email":"mailto:tchuenkam26@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},"sameAs":["https://github.com/Loicarthur","https://www.linkedin.com/in/loic-arthur-tchuenkam-a268a7256/"]}</script>
+<title>Loïc Tchuenkam — Développeur &amp; chef de projet</title>
+<meta name="description" content="Loïc Tchuenkam conçoit, développe et pilote des produits digitaux, de l'idée à la mise en production. Fondateur et développeur de Sankéa, marketplace mobile de coiffure afro.">
+<meta property="og:title" content="Loïc Tchuenkam — Je conçois, développe et pilote des produits digitaux">
+<meta property="og:description" content="Software Developer · Chef de projet · Product Builder. Sankéa, Decotec, Demingo, AlternaJobs.">
+<meta property="og:type" content="website">
 
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0D0D0B}
+html{scroll-behavior:smooth}
+a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
+*{box-sizing:border-box}
+::selection{background:var(--accent);color:#0D0D0B}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,64px)}
+.mono{font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.disp{font-family:'Archivo','Arial Narrow',Arial,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.035em;line-height:.92;margin:0}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border:1px solid rgba(242,239,232,.16);border-radius:999px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#D8D4CB;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--accent);color:#0D0D0B;font-weight:600;font-size:15px;transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{color:#0D0D0B;transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--accent)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1px solid rgba(242,239,232,.28);color:#F2EFE8;font-weight:500;font-size:15px;transition:border-color .25s ease,background .25s ease}
+.btn-ghost:hover{border-color:#F2EFE8;background:rgba(242,239,232,.06);color:#F2EFE8}
+.phone{border-radius:42px;padding:7px;background:#1C1C19;border:1px solid rgba(242,239,232,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.6) inset}
+.phone img{display:block;width:100%;height:auto;border-radius:35px}
+.arrow-li{display:flex;gap:12px;align-items:baseline}
+.arrow-li::before{content:"→";color:var(--accent);font-family:'Geist Mono',monospace}
+.proj{transition:border-color .4s ease}
+.proj:hover{border-color:rgba(242,239,232,.3)}
+.proj .zoom{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.proj:hover .zoom{transform:scale(1.025)}
+.node{border:1px solid rgba(242,239,232,.18);border-radius:14px;padding:14px 16px;background:#11110F}
+.node-acc{border-color:var(--accent);background:rgba(255,122,47,.06)}
+.link-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0;border-top:1px solid rgba(242,239,232,.14);transition:padding .3s ease,color .3s ease}
+.link-row:hover{padding-left:12px;color:var(--accent)}
+.grid-bg{background-image:linear-gradient(rgba(242,239,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,232,.045) 1px,transparent 1px);background-size:56px 56px}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.in{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.45s}.d5{animation-delay:.6s}
+.bar{transform-origin:left;animation:grow 1.2s cubic-bezier(.6,0,.2,1) both}
+.fl1{animation:float 7s ease-in-out infinite}.fl2{animation:float 8s ease-in-out -2s infinite}.fl3{animation:float 9s ease-in-out -4s infinite}
+.dot{animation:pulse 2.4s ease-in-out infinite}
+@supports (animation-timeline: view()){
+.rv{animation:up linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+.px-up{animation:pxu linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.px-dn{animation:pxd linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+@keyframes pxu{from{transform:translateY(60px)}to{transform:translateY(-60px)}}
+@keyframes pxd{from{transform:translateY(-30px)}to{transform:translateY(50px)}}
+}
+@media (max-width:760px){
+.hide-sm{display:none !important}
+.fan{height:440px !important}
+.disp{font-stretch:105%}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none !important;transition:none !important}
+html{scroll-behavior:auto}
+}
+</style>
 
-<script>
-	// This code is inlined in the head to make dark mode instant & blocking.
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
+</head>
+<body>
+<div style="--accent: #FF7A2F; background: #0D0D0B; color: #F2EFE8; font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased">
 
-	if (typeof localStorage !== 'undefined') {
-		// Watch the document element and persist user preference when it changes.
-		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('theme-dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-	}
-</script>
-	<link rel="stylesheet" href="css/404.8e7ccd6e.css" />
-<link rel="stylesheet" href="css/index.95ab5b83.css" />
-<link rel="stylesheet" href="css/index.d2e14741.css" />
-<link rel="stylesheet" href="css/about.8c3abb9f.css" />
-<link rel="stylesheet" href="css/index.e0da855c.css" />
-<link rel="stylesheet" href="css/about.93ec11f1.css" /><script type="module">addEventListener("load",()=>document.documentElement.classList.add("loaded"));class i extends HTMLElement{constructor(){super(),this.appendChild(this.querySelector("template").content.cloneNode(!0));const e=this.querySelector("button"),t=document.getElementById("menu-content");t.hidden=!0;const n=s=>{e.setAttribute("aria-expanded",s?"true":"false"),t.hidden=!s};e.addEventListener("click",()=>n(t.hidden));const d=s=>{n(s.matches),e.hidden=s.matches},c=window.matchMedia("(min-width: 50em)");d(c),c.addEventListener("change",d)}}customElements.define("menu-button",i);class r extends HTMLElement{constructor(){super();const e=this.querySelector("button"),t=n=>{document.documentElement.classList[n?"add":"remove"]("theme-dark"),e.setAttribute("aria-pressed",String(n))};e.addEventListener("click",()=>t(!this.isDark())),t(this.isDark())}isDark(){return document.documentElement.classList.contains("theme-dark")}}customElements.define("theme-toggle",r);
-</script></head>
-	<body class="astro-37FXCHFA">
-		<div class="stack backgrounds astro-37FXCHFA">
-			<nav class="astro-DMQPWCEC">
-	<div class="menu-header astro-DMQPWCEC">
-		<a href="index.html" class="site-title astro-DMQPWCEC">
-			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-20ixvvgia)" fill="url(#icon-gradient-20ixvvgia)" style="--size:1.6em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><circle stroke="none" cx="96" cy="144" r="12"/><circle stroke="none" cx="160" cy="144" r="12"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M74 80a175 175 0 0 1 54-8 175 175 0 0 1 54 8m0 96a175 175 0 0 1-54 8 175 175 0 0 1-54-8"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m155 182 12 24a8 8 0 0 0 9 4c25-6 46-16 61-30a8 8 0 0 0 3-8L206 59a8 8 0 0 0-5-5 176 176 0 0 0-30-9 8 8 0 0 0-9 5l-8 24m-53 108-12 24a8 8 0 0 1-9 4c-25-6-46-16-61-30a8 8 0 0 1-3-8L50 59a8 8 0 0 1 5-5 176 176 0 0 1 30-9 8 8 0 0 1 9 5l8 24"/></g>
-	<linearGradient id="icon-gradient-20ixvvgia" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" class="astro-PATNJMLL">
-				<stop stop-color="var(--gradient-stop-1)" class="astro-PATNJMLL"></stop>
-				<stop offset=".5" stop-color="var(--gradient-stop-2)" class="astro-PATNJMLL"></stop>
-				<stop offset="1" stop-color="var(--gradient-stop-3)" class="astro-PATNJMLL"></stop>
-			</linearGradient>
-</svg>
-			Loic Tchuenkam
-		</a>
-		<menu-button class="astro-DMQPWCEC">
-			<template class="astro-DMQPWCEC">
-				<button class="menu-button astro-DMQPWCEC" aria-expanded="false">
-					<span class="sr-only astro-DMQPWCEC">Menu</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 128h176M40 64h176M40 192h176"/></g>
-	
-</svg>
-				</button>
-			</template>
-		</menu-button>
-	</div>
-	<div id="menu-content" class="astro-DMQPWCEC">
-		<ul class="nav-items astro-DMQPWCEC">
-			<li class="astro-DMQPWCEC">
-						<a aria-current="true" class="link active astro-DMQPWCEC" href="index.html">
-							Home
-						</a>
-					</li><li class="astro-DMQPWCEC">
-						<a class="link astro-DMQPWCEC" href="work/index.html">
-							Project
-						</a>
-					</li><li class="astro-DMQPWCEC">
-						<a class="link astro-DMQPWCEC" href="about/index.html">
-							About
-						</a>
-					</li>
-		</ul>
-		<div class="menu-footer astro-DMQPWCEC">
-			<div class="socials astro-DMQPWCEC">
-				<a href="https://www.linkedin.com/in/loic-arthur-tchuenkam-a268a7256/" class="social astro-DMQPWCEC">
-							<span class="sr-only astro-DMQPWCEC">Twitter</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><rect width="184" height="184" x="36" y="36" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" rx="8"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M120 112v64m-32-64v64m32-36a28 28 0 0 1 56 0v36"/><circle stroke="none" cx="88" cy="80" r="12"/></g>
-	
-</svg>
-						</a><a href="https://github.com/Loicarthur" class="social astro-DMQPWCEC">
-							<span class="sr-only astro-DMQPWCEC">GitHub</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><g stroke-linecap="round" stroke-linejoin="round"><path fill="none" stroke-width="14.7" d="M55.7 167.2c13.9 1 21.3 13.1 22.2 14.6 4.2 7.2 10.4 9.6 18.3 7.1l1.1-3.4a60.3 60.3 0 0 1-25.8-11.9c-12-10.1-18-25.6-18-46.3"/><path fill="none" stroke-width="16" d="M61.4 205.1a24.5 24.5 0 0 1-3-6.1c-3.2-7.9-7.1-10.6-7.8-11.1l-1-.6c-2.4-1.6-9.5-6.5-7.2-13.9 1.4-4.5 6-7.2 12.3-7.2h.8c4 .3 7.6 1.5 10.7 3.2-9.1-10.1-13.6-24.3-13.6-42.3 0-11.3 3.5-21.7 10.1-30.4A46.7 46.7 0 0 1 65 67.3a8.3 8.3 0 0 1 5-4.7c2.8-.9 13.3-2.7 33.2 9.9a105 105 0 0 1 50.5 0c19.9-12.6 30.4-10.8 33.2-9.9 2.3.7 4.1 2.4 5 4.7 5 12.7 4 23.2 2.6 29.4 6.7 8.7 10 18.9 10 30.4 0 42.6-25.8 54.7-43.6 58.7 1.4 4.1 2.2 8.8 2.2 13.7l-.1 23.4v2.3"/><path fill="none" stroke-width="16" d="M160.9 185.7c1.4 4.1 2.2 8.8 2.2 13.7l-.1 23.4v2.3A98.6 98.6 0 1 0 61.4 205c-1.4-2.1-11.3-17.5-11.8-17.8-2.4-1.6-9.5-6.5-7.2-13.9 1.4-4.5 6-7.2 12.3-7.2h.8c4 .3 7.6 1.5 10.7 3.2-9.1-10.1-13.6-24.3-13.6-42.3 0-11.3 3.5-21.7 10.1-30.4A46.4 46.4 0 0 1 65 67.3a8.3 8.3 0 0 1 5-4.7c2.8-.9 13.3-2.7 33.2 9.9a105 105 0 0 1 50.5 0c19.9-12.6 30.4-10.8 33.2-9.9 2.3.7 4.1 2.4 5 4.7 5 12.7 4 23.2 2.6 29.4 6.7 8.7 10 18.9 10 30.4.1 42.6-25.8 54.7-43.6 58.6z"/><path fill="none" stroke-width="18.7" d="m170.1 203.3 17.3-12 17.2-18.7 9.5-26.6v-27.9l-9.5-27.5" /><path fill="none" stroke-width="22.7" d="m92.1 57.3 23.3-4.6 18.7-1.4 29.3 5.4m-110 32.6-8 16-4 21.4.6 20.3 3.4 13" /><path fill="none" stroke-width="13.3" d="M28.8 133a100 100 0 0 0 66.9 94.4v-8.7c-22.4 1.8-33-11.5-35.6-19.8-3.4-8.6-7.8-11.4-8.5-11.8"/></g></g>
-	
-</svg>
-						</a>
-			</div>
-
-			<div class="theme-toggle astro-DMQPWCEC">
-				<theme-toggle class="astro-X3PJSKD3">
-	<button class="astro-X3PJSKD3">
-		<span class="sr-only astro-X3PJSKD3">Dark theme</span>
-		<span class="icon light astro-X3PJSKD3"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><circle cx="128" cy="128" r="60" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 36V16M63 63 49 49m-13 79H16m47 65-14 14m79 13v20m65-47 14 14m13-79h20m-47-65 14-14"/></g>
-	
-</svg></span>
-		<span class="icon dark astro-X3PJSKD3"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 112V64m24 24h-48m-24-64v32m16-16h-32m65 113A92 92 0 0 1 103 39h0a92 92 0 1 0 114 114Z"/></g>
-	
-</svg></span>
-	</button>
-</theme-toggle>
-			</div>
-		</div>
-	</div>
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(13,13,11,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(242,239,232,.08)">
+<nav class="wrap" aria-label="Navigation principale" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px">
+<a href="#top" style="display: flex; align-items: center; gap: 12px">
+<span style="display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #F2EFE8; color: #0D0D0B; font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 14px; letter-spacing: -.04em">LT</span>
+<span style="font-weight: 600; font-size: 15px">Loïc Tchuenkam</span>
+</a>
+<div class="hide-sm" style="display: flex; align-items: center; gap: 32px; font-size: 14px; color: #CFCBC2">
+<a href="#projets">Projets</a>
+<a href="#methode">Méthode</a>
+<a href="#parcours">Expérience</a>
+<a href="#stack">Stack</a>
+</div>
+<a href="#contact" class="btn" style="min-height: 44px; padding: 0 18px; font-size: 14px">Me contacter</a>
 </nav>
-			
-	<div class="stack gap-20 lg:gap-48 astro-J7PV25F6">
-		<div class="wrapper stack gap-8 lg:gap-20 astro-J7PV25F6">
-			<header class="hero astro-J7PV25F6">
-				<header class="hero stack gap-4 start astro-BBE6DXRZ">
-	<div class="stack gap-2 astro-BBE6DXRZ">
-		<h1 class="title astro-BBE6DXRZ">Salut, je me nomme Loic Tchuenkam</h1>
-		<p class="tagline astro-BBE6DXRZ">Développeur FullStack & Lead Développeur en recherche d'un CDI. Fort d'une expertise acquise chez Decotec et Tradespotting, je transforme vos idées en solutions techniques robustes et scalables.</p>
-	</div>
-	
-					<div class="roles astro-J7PV25F6">
-						<div class="pill astro-2QEYWK4B">
-							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.33em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M96 216H48a8 8 0 0 1-8-8v-44.7a7.9 7.9 0 0 1 2.3-5.6l120-120a8 8 0 0 1 11.4 0l44.6 44.6a8 8 0 0 1 0 11.4Zm40-152 56 56"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 216H96l-55.5-55.5M164 92l-96 96"/></g>
-	
-</svg> FullStack
-						</div>
-						<div class="pill astro-2QEYWK4B"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.33em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m64 88-48 40 48 40m128-80 48 40-48 40M160 40 96 216"/></g>
-	
-</svg> DevOps</div>
-						<div class="pill astro-2QEYWK4B"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.33em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><circle cx="128" cy="128" r="60" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 36V16M63 63 49 49m-13 79H16m47 65-14 14m79 13v20m65-47 14 14m13-79h20m-47-65 14-14"/></g>
-	
-</svg> Architecture</div>
-					</div>
-				
 </header>
 
-				<img alt="Loic" width="480" height="620" src="images/portrait.jpg" class="astro-J7PV25F6">
-			</header>
+<!-- HERO -->
+<section id="top" class="wrap" style="padding-top: clamp(56px, 8vw, 112px); padding-bottom: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: clamp(40px, 5vw, 72px); align-items: center">
+<div style="display: flex; flex-direction: column; gap: 32px; min-width: 0">
+<div class="mono in" style="display: flex; align-items: center; gap: 10px; color: #A19D94">
+<span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent)"></span>
+<span>En recherche d'un CDI · Paris · Mobile en France</span>
+</div>
+<h1 class="disp in d1" style="font-size: clamp(48px, 7.4vw, 104px)">Je conçois, développe et <span style="color: var(--accent)">pilote</span> des produits digitaux.</h1>
+<p class="in d2" style="margin: 0; max-width: 560px; font-size: clamp(17px, 1.5vw, 20px); color: #CFCBC2; text-wrap: pretty">De l'idée à la mise en production. Développeur full stack et chef de projet, je cadre le besoin, j'organise le travail, j'écris le code et je livre. Dernière preuve en date : <strong style="color: #F2EFE8; font-weight: 600">Sankéa</strong>, une marketplace mobile que j'ai fondée, développée et publiée sur l'App Store.</p>
+<div class="in d3" style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="/sankea/" class="btn">Voir le case study Sankéa <span aria-hidden="true">→</span></a>
+<a href="/Loic_Tchuenkam_FlowCV_Resume_2026-04-28.pdf" class="btn-ghost">Télécharger le CV</a>
+</div>
+<div class="in d4 mono" style="display: flex; flex-wrap: wrap; gap: 8px 20px; color: #A19D94; font-size: 11px">
+<span>Software Developer</span><span aria-hidden="true">/</span><span>Full Stack</span><span aria-hidden="true">/</span><span>Chef de projet</span><span aria-hidden="true">/</span><span>Product Builder</span>
+</div>
+</div>
 
-			<section class="box skills astro-AB4IHPZS">
-	<div class="stack gap-2 lg:gap-4 astro-AB4IHPZS">
-		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-381m31gp0)" fill="url(#icon-gradient-381m31gp0)" style="--size:2.5rem" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="m64 88-48 40 48 40m128-80 48 40-48 40M160 40 96 216"/></g>
-	<linearGradient id="icon-gradient-381m31gp0" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" class="astro-PATNJMLL">
-				<stop stop-color="var(--gradient-stop-1)" class="astro-PATNJMLL"></stop>
-				<stop offset=".5" stop-color="var(--gradient-stop-2)" class="astro-PATNJMLL"></stop>
-				<stop offset="1" stop-color="var(--gradient-stop-3)" class="astro-PATNJMLL"></stop>
-			</linearGradient>
-</svg>
-		<h2 class="astro-AB4IHPZS">Développement Full Stack</h2>
-		<p class="astro-AB4IHPZS">Expert Angular 18, Node.js et Python (Odoo). Conception d'applications web et mobiles (React Native) performantes avec une maîtrise totale du cycle de vie logicielle.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4 astro-AB4IHPZS">
-		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-31wfgdvkg)" fill="url(#icon-gradient-31wfgdvkg)" style="--size:2.5rem" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M56 56v55.1c0 39.7 31.8 72.6 71.5 72.9a72 72 0 0 0 72.5-72V56a8 8 0 0 0-8-8H64a8 8 0 0 0-8 8Zm40 168h64m-32-40v40"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M198.2 128h9.8a32 32 0 0 0 32-32V80a8 8 0 0 0-8-8h-32M58 128H47.9a32 32 0 0 1-32-32V80a8 8 0 0 1 8-8h32"/></g>
-	<linearGradient id="icon-gradient-31wfgdvkg" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" class="astro-PATNJMLL">
-				<stop stop-color="var(--gradient-stop-1)" class="astro-PATNJMLL"></stop>
-				<stop offset=".5" stop-color="var(--gradient-stop-2)" class="astro-PATNJMLL"></stop>
-				<stop offset="1" stop-color="var(--gradient-stop-3)" class="astro-PATNJMLL"></stop>
-			</linearGradient>
-</svg>
-		<h2 class="astro-AB4IHPZS">Gestion de Projet & Agilité</h2>
-		<p class="astro-AB4IHPZS">Pilotage de projets complexes en mode Agile (Scrum/Kanban). Spécialiste de l'automatisation des processus métiers avec n8n pour optimiser la productivité.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4 astro-AB4IHPZS">
-		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="url(#icon-gradient-270sxdhka)" fill="url(#icon-gradient-270sxdhka)" style="--size:2.5rem" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><circle cx="128" cy="128" r="60" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M128 36V16M63 63 49 49m-13 79H16m47 65-14 14m79 13v20m65-47 14 14m13-79h20m-47-65 14-14"/></g>
-	<linearGradient id="icon-gradient-270sxdhka" x1="23" x2="235" y1="43" y2="202" gradientUnits="userSpaceOnUse" class="astro-PATNJMLL">
-				<stop stop-color="var(--gradient-stop-1)" class="astro-PATNJMLL"></stop>
-				<stop offset=".5" stop-color="var(--gradient-stop-2)" class="astro-PATNJMLL"></stop>
-				<stop offset="1" stop-color="var(--gradient-stop-3)" class="astro-PATNJMLL"></stop>
-			</linearGradient>
-</svg>
-		<h2 class="astro-AB4IHPZS">DevOps & Infrastructures</h2>
-		<p class="astro-AB4IHPZS">Maîtrise de Docker, Kubernetes et de la CI/CD. Mise en place de monitoring avancé (Grafana/Prometheus) et administration de systèmes Linux/Windows sécurisés.</p>
-	</div>
+<div class="fan in d3" style="position: relative; height: 640px; min-width: 0" aria-label="Écrans réels de l'application Sankéa" role="img">
+<div class="fl2" style="position: absolute; left: 0; top: 90px; width: 40%; z-index: 1">
+<div class="phone" style="transform: rotate(-7deg)"><img src="/assets/img/sk-salon.webp" alt="" loading="eager"></div>
+</div>
+<div class="fl1" style="position: absolute; left: 29%; top: 0; width: 44%; z-index: 3">
+<div class="phone"><img src="/assets/img/sk-accueil.webp" alt="" loading="eager"></div>
+</div>
+<div class="fl3" style="position: absolute; right: 0; top: 120px; width: 40%; z-index: 2">
+<div class="phone" style="transform: rotate(6deg)"><img src="/assets/img/sk-creneaux.webp" alt="" loading="eager"></div>
+</div>
+<div class="mono" style="position: absolute; left: 0; bottom: 0; color: #A19D94; font-size: 11px">Sankéa — écrans réels, iOS</div>
+</div>
+</div>
+
+<!-- PIPELINE -->
+<ol style="list-style: none; margin: clamp(56px, 7vw, 96px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 0">
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 0 0">
+<div style="height: 2px; background: rgba(242,239,232,.12); position: relative; overflow: hidden"><div class="bar" style="position: absolute; inset: 0; background: var(--accent); animation-delay: 0.5s"></div></div>
+<span class="mono" style="color: var(--accent)">01</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: 22px; letter-spacing: -.02em">Idée</span>
+<span style="font-size: 14px; color: #A19D94">Comprendre le besoin réel</span>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 0 0">
+<div style="height: 2px; background: rgba(242,239,232,.12); position: relative; overflow: hidden"><div class="bar" style="position: absolute; inset: 0; background: var(--accent); animation-delay: 0.7s"></div></div>
+<span class="mono" style="color: var(--accent)">02</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: 22px; letter-spacing: -.02em">Conception</span>
+<span style="font-size: 14px; color: #A19D94">Specs, parcours, modèle de données</span>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 0 0">
+<div style="height: 2px; background: rgba(242,239,232,.12); position: relative; overflow: hidden"><div class="bar" style="position: absolute; inset: 0; background: var(--accent); animation-delay: 0.9s"></div></div>
+<span class="mono" style="color: var(--accent)">03</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: 22px; letter-spacing: -.02em">Organisation</span>
+<span style="font-size: 14px; color: #A19D94">Backlog, priorités, risques</span>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 0 0">
+<div style="height: 2px; background: rgba(242,239,232,.12); position: relative; overflow: hidden"><div class="bar" style="position: absolute; inset: 0; background: var(--accent); animation-delay: 1.1s"></div></div>
+<span class="mono" style="color: var(--accent)">04</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: 22px; letter-spacing: -.02em">Développement</span>
+<span style="font-size: 14px; color: #A19D94">Mobile, web, backend, intégrations</span>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 0 0">
+<div style="height: 2px; background: rgba(242,239,232,.12); position: relative; overflow: hidden"><div class="bar" style="position: absolute; inset: 0; background: var(--accent); animation-delay: 1.3s"></div></div>
+<span class="mono" style="color: var(--accent)">05</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 700; font-size: 22px; letter-spacing: -.02em">Livraison</span>
+<span style="font-size: 14px; color: #A19D94">Recette, mise en prod, suivi</span>
+</li>
+
+</ol>
 </section>
-		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48 astro-J7PV25F6">
-			<section class="section with-background with-cta astro-J7PV25F6">
-				<header class="section-header stack gap-2 lg:gap-4 astro-J7PV25F6">
-					<h3 class="astro-J7PV25F6">Mes projects</h3>
-					<p class="astro-J7PV25F6">Visuel de quelques projects.</p>
-				</header>
+<!-- 01 PROFIL -->
+<section class="wrap" style="padding-top: clamp(80px, 10vw, 150px); padding-bottom: clamp(40px, 6vw, 80px)">
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center">
+<figure style="margin: 0 auto; justify-self: center; align-self: center; position: relative; max-width: 420px; width: 100%">
+<div style="position: relative">
+<div style="position: absolute; inset: 14px; transform: translate(14px, 14px); border: 1px solid var(--accent); border-radius: 28px" aria-hidden="true"></div>
+<img src="/assets/img/loic-portrait.webp" alt="Portrait de Loïc Tchuenkam" loading="lazy" style="position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 28px; filter: grayscale(1) contrast(1.05)">
+</div>
+<figcaption class="mono" style="position: relative; margin-top: 28px; display: flex; justify-content: space-between; gap: 12px; color: #A19D94; font-size: 11px"><span>Loïc Tchuenkam</span><span>Paris</span></figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<span class="mono" style="color: #A19D94">01 — Profil</span>
+<h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Dans le code <span style="color: #6E6A62">et</span> dans le pilotage.</h2>
+<p style="margin: 0; font-size: 18px; color: #E6E2D9; max-width: 620px; text-wrap: pretty">Je m'appelle Loïc Tchuenkam. En dernière année de Master Lead Développeur, j'ai été chef de projet chez Decotec, développeur full stack chez Tradespotting, et j'ai fondé Sankéa, que j'ai mené seul de l'idée jusqu'à l'App Store.</p>
+<p style="margin: 0; font-size: 16px; color: #A19D94; max-width: 620px; text-wrap: pretty">Mon profil tient en trois dimensions complémentaires, chacune démontrée par un projet réel plutôt que par un adjectif.</p>
+</div>
+</div>
+<div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1px; background: rgba(242,239,232,.12); border: 1px solid rgba(242,239,232,.12); border-radius: 24px; overflow: hidden">
 
-				<div class="gallery astro-J7PV25F6">
-					<li class="astro-J7PV25F6">
-						<a class="card astro-LGKM4U2A" href="work/afroplan/index.html">
-							<span class="title astro-LGKM4U2A">Afroplan : Mise en relation coiffeurs & clients Afro</span>
-							<img src="images/images.jpeg" alt="Afroplan mobile app" loading="lazy" decoding="async" class="astro-LGKM4U2A" />
-						</a>
-					</li>
-					<li class="astro-J7PV25F6">
-						<a class="card astro-LGKM4U2A" href="work/markdown-mystery-tour/index.html">
-	<span class="title astro-LGKM4U2A">Plannification et conception d&#39;une solution informatique pour une association sportive</span>
-	<!--< src={data.video} alt={data.img_alt || ''} loading="lazy" decoding="async" />-->
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/O_bA9Q1Oo2E?si=Iqn91Y1K-24-CD5istart=8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-								
-								</a>
-							</li><li class="astro-J7PV25F6"> 
-									<a class="card astro-LGKM4U2A" href="work/bloom-box/index.html">
-	<span class="title astro-LGKM4U2A">Creation d'un site de commande de burgers</span>
-	<!--< src={data.video} alt={data.img_alt || ''} loading="lazy" decoding="async" />-->
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/1t36mvbaMcM?si=sBVjfnqt9hXDuiPq" title="Site de commande" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="astro-LGKM4U2A"></iframe>
+<article class="rv" style="background: #0D0D0B; padding: clamp(28px, 3vw, 44px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<span class="mono" style="color: var(--accent)">Tech</span>
+<span class="mono" style="color: #6E6A62">01</span>
+</div>
+<h3 class="disp" style="font-size: 40px">Je construis.</h3>
+<p style="margin: 0; color: #CFCBC2; text-wrap: pretty">Applications mobiles (React Native, Expo, Flutter), web (Next.js, React, Angular) et backends (Supabase, Node.js, Python/Odoo, Spring Boot). Du schéma de base de données jusqu’à la publication sur les stores.</p>
+<div style="margin-top: auto; padding-top: 20px; border-top: 1px dashed rgba(242,239,232,.16); display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve</span>
+<span style="font-size: 14px; color: #F2EFE8; text-wrap: pretty">Sankéa : app iOS en production, back-office web et paiements Stripe Connect.</span>
+</div>
+</article>
+
+<article class="rv" style="background: #0D0D0B; padding: clamp(28px, 3vw, 44px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<span class="mono" style="color: var(--accent)">Project</span>
+<span class="mono" style="color: #6E6A62">02</span>
+</div>
+<h3 class="disp" style="font-size: 40px">Je structure.</h3>
+<p style="margin: 0; color: #CFCBC2; text-wrap: pretty">Cadrage, spécifications, découpage, priorisation, recette. Je transforme une demande floue en plan livrable et je suis les délais jusqu’à la mise en ligne.</p>
+<div style="margin-top: auto; padding-top: 20px; border-top: 1px dashed rgba(242,239,232,.16); display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve</span>
+<span style="font-size: 14px; color: #F2EFE8; text-wrap: pretty">Decotec : pilotage de la refonte du site, de l’arborescence à la mise en ligne.</span>
+</div>
+</article>
+
+<article class="rv" style="background: #0D0D0B; padding: clamp(28px, 3vw, 44px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<span class="mono" style="color: var(--accent)">People</span>
+<span class="mono" style="color: #6E6A62">03</span>
+</div>
+<h3 class="disp" style="font-size: 40px">Je coordonne.</h3>
+<p style="margin: 0; color: #CFCBC2; text-wrap: pretty">Je fais le lien entre profils techniques et métier : équipes, business analysts, client, partenaires. Je reformule, j’aligne, je fais avancer.</p>
+<div style="margin-top: auto; padding-top: 20px; border-top: 1px dashed rgba(242,239,232,.16); display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve</span>
+<span style="font-size: 14px; color: #F2EFE8; text-wrap: pretty">Tradespotting : travail avec équipes métier et BA. Decotec : coordination des équipes et des étapes.</span>
+</div>
+</article>
+
+</div>
+</section>
+
+<!-- 02 PROJETS -->
+<section id="projets" class="wrap" style="padding-top: clamp(80px, 10vw, 140px)">
+<div class="rv" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="mono" style="color: #A19D94">02 — Projets personnels</span>
+<h2 class="disp" style="font-size: clamp(44px, 7vw, 104px)">Ce que j'ai construit.</h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #A19D94; font-size: 15px">Des produits que j'ai lancés moi-même. Pour chacun : le problème, ce que j'ai livré, et ce que ça démontre pour une équipe.</p>
+</div>
+
+<!-- SANKEA FEATURE -->
+<article class="proj grid-bg" style="margin-top: 56px; border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background-color: #121210; overflow: hidden">
+<div style="padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="mono" style="color: var(--accent)">Projet phare</span>
+<span class="chip" style="border-color: rgba(92,214,140,.4); color: #8FE3AE"><span class="dot" style="width: 6px; height: 6px; border-radius: 50%; background: #5CD68C; margin-right: 8px"></span>En ligne sur l'App Store</span>
+</div>
+<h3 class="disp" style="font-size: clamp(64px, 11vw, 168px); letter-spacing: -.05em">SANKÉA</h3>
+<p style="margin: 0; font-size: 19px; color: #CFCBC2">Marketplace mobile de réservation de coiffure afro</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 240px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Mon rôle</span>
+<span style="font-size: 17px; font-weight: 600">Fondateur · Project Lead</span>
+<span style="font-size: 17px; font-weight: 600">Tech Lead · Full Stack</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: #A19D94; font-size: 11px">En bref</span>
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Réserver une coiffure afro passe encore souvent par des DM, des acomptes par virement et des agendas tenus à la main. Sankéa réunit clientes et coiffeuses dans une seule app : trouver un salon, comparer prix et durées, réserver un créneau et payer un acompte en ligne.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce que j'ai fait</span>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #E6E2D9">
+<span class="arrow-li">Conception du produit et des parcours</span>
+<span class="arrow-li">Développement de l'app mobile et du back-office</span>
+<span class="arrow-li">Intégration du paiement en ligne</span>
+<span class="arrow-li">Publication sur l'App Store et lancement</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce que ça démontre</span>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #E6E2D9">
+<span class="arrow-li">Porter un produit de l'idée à la production</span>
+<span class="arrow-li">Modéliser une logique métier avec de l'argent en jeu</span>
+<span class="arrow-li">Intégrer des services tiers critiques</span>
+<span class="arrow-li">Arbitrer seul : coûts, risques, priorités</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- screen strip -->
+<div style="position: relative; padding: 0 clamp(20px, 4vw, 56px) clamp(32px, 4vw, 56px)">
+<div class="zoom" style="display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: clamp(12px, 2vw, 28px); overflow-x: auto; padding: 60px 4px 40px; scrollbar-width: none" aria-label="Parcours cliente : univers, accueil, salon, créneaux, paiement" role="img">
+<div class="px-dn"><div class="phone"><img src="/assets/img/sk-univers.webp" alt="" loading="lazy"></div></div>
+<div class="px-up"><div class="phone"><img src="/assets/img/sk-accueil.webp" alt="" loading="lazy"></div></div>
+<div class="px-dn"><div class="phone"><img src="/assets/img/sk-salon.webp" alt="" loading="lazy"></div></div>
+<div class="px-up"><div class="phone"><img src="/assets/img/sk-creneaux.webp" alt="" loading="lazy"></div></div>
+<div class="px-dn"><div class="phone"><img src="/assets/img/sk-paiement.webp" alt="" loading="lazy"></div></div>
+</div>
+</div>
+
+<div style="border-top: 1px solid rgba(242,239,232,.12); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr))">
+
+<div style="padding: 28px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,.08); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 118%; font-weight: 800; font-size: 40px; letter-spacing: -.03em">iOS</span>
+<span style="font-size: 14px; color: #A19D94">Publiée sur l’App Store, Android à venir</span>
+</div>
+
+<div style="padding: 28px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,.08); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 118%; font-weight: 800; font-size: 40px; letter-spacing: -.03em">4</span>
+<span style="font-size: 14px; color: #A19D94">espaces : cliente, coiffeuse, salon, admin</span>
+</div>
+
+<div style="padding: 28px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,.08); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 118%; font-weight: 800; font-size: 40px; letter-spacing: -.03em">3</span>
+<span style="font-size: 14px; color: #A19D94">lieux de prestation : salon, domicile, chez la pro</span>
+</div>
+
+<div style="padding: 28px clamp(20px, 3vw, 40px); border-right: 1px solid rgba(242,239,232,.08); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 118%; font-weight: 800; font-size: 40px; letter-spacing: -.03em">En ligne</span>
+<span style="font-size: 14px; color: #A19D94">paiement sécurisé à la réservation</span>
+</div>
+
+</div>
+
+<div style="border-top: 1px solid rgba(242,239,232,.12); padding: 24px clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Stripe</span>
+</div>
+<a href="/sankea/" class="btn">Lire le case study <span aria-hidden="true">→</span></a>
+</div>
+</article>
+
+<!-- OTHER PROJECTS -->
+<div style="margin-top: 32px; display: flex; flex-direction: column; gap: 32px">
+
+<article class="proj rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background: #121210; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="mono" style="color: var(--accent)">Projet perso · Mobile</span>
+<span class="chip">En développement · 2026</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 class="disp" style="font-size: clamp(44px, 5.5vw, 76px); letter-spacing: -.045em">DEMINGO</h3>
+<p style="margin: 0; font-size: 17px; color: #CFCBC2">Application mobile de déménagement</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Mon rôle</span>
+<span style="font-weight: 600">Concepteur &amp; développeur full stack</span>
+</div>
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Organiser un déménagement reste compliqué et peu transparent. Demingo permet au client d’obtenir un devis et de réserver ses déménageurs directement depuis son téléphone.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce que j'ai fait</span>
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Conception du produit et des parcours</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Application mobile client et espace prestataire</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Back-office d’administration</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Paiement en ligne</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Stripe</span><span class="chip">IA</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<div class="zoom node" style="flex: 1; border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; justify-content: center; background: #0D0D0B">
+<span class="mono" style="color: #A19D94; font-size: 11px">Le parcours client</span>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Décrire son déménagement</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">en quelques écrans</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node node-acc" style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Devis automatique</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">immédiat</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Réservation &amp; paiement</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">en ligne</span>
+</div>
+
+</div>
+
+</div>
+<div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
+<p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais concevoir un produit de bout en bout et transformer un besoin métier concret en application simple à utiliser.</p>
+</div>
+</div>
+</article>
+
+<article class="proj rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background: #121210; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="mono" style="color: var(--accent)">Projet perso · SaaS</span>
+<span class="chip">Mis en ligne · 2024 – 2025</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 class="disp" style="font-size: clamp(44px, 5.5vw, 76px); letter-spacing: -.045em">ALTERNAJOBS</h3>
+<p style="margin: 0; font-size: 17px; color: #CFCBC2">Web app qui automatise les candidatures spontanées en alternance</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Mon rôle</span>
+<span style="font-weight: 600">Fondateur &amp; développeur full stack</span>
+</div>
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Trouver une alternance, c’est envoyer des dizaines de candidatures spontanées à la main. AlternaJobs permet de créer une campagne : l’app identifie les entreprises, personnalise les messages et gère l’envoi, avec un paiement à la campagne.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce que j'ai fait</span>
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Frontend React + Vite, design system shadcn/ui</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">API serverless sur Supabase Edge Functions (Hono) : campagnes, factures, admin</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Paiements Stripe, e-mails transactionnels, désabonnement RGPD</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Orchestration des campagnes avec un workflow n8n</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span><span class="chip">Supabase</span><span class="chip">Hono</span><span class="chip">Stripe</span><span class="chip">n8n</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<div class="zoom node" style="flex: 1; border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; justify-content: center; background: #0D0D0B">
+<span class="mono" style="color: #A19D94; font-size: 11px">Une campagne</span>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Campagne créée</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">secteur · ville · profil</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node node-acc" style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Workflow n8n</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">déclenché par webhook</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Prospection &amp; enrichissement</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">entreprises · contacts</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Envoi personnalisé</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">suivi dans le dashboard</span>
+</div>
+
+</div>
+
+</div>
+<div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
+<p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais lancer un SaaS complet seul : produit, paiement, automatisation et conformité.</p>
+</div>
+</div>
+</article>
+
+</div>
+
+<!-- LAB -->
+<div class="rv" style="margin-top: clamp(64px, 8vw, 112px); display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<h3 class="disp" style="font-size: clamp(32px, 4vw, 52px)">Labo technique</h3>
+<p style="margin: 0; max-width: 420px; color: #A19D94; font-size: 15px">Projets d'école et d'exploration, choisis pour la profondeur technique qu'ils montrent.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
+
+<a href="https://github.com/Loicarthur/Timer-Service-API-Spring-Boot-d-ploy-e-sur-OpenShift-CI-CD-Serverless-" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Timer Service · OpenShift</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API REST Spring Boot déployée en serverless (Knative, scale-to-zero) et en standard, avec CI/CD Tekton.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">Java 21 · Spring Boot 3.5 · Tekton · Prometheus</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Cloud &amp; CI/CD</span>
 </a>
-								</li>
-</ul>
-				</div>
 
-				<div class="cta astro-J7PV25F6">
-					<a href="work/index.html" class="astro-BALV45LP">
-						View All
-						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.2em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M40 128h176m-72-72 72 72-72 72"/></g>
-	
-</svg>
-					</a>
-				</div>
-			</section>
-		</main>
+<a href="https://github.com/Loicarthur/MicroserviceApiF1" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Microservices F1</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API Gateway et trois services (auth, users, timer) conteneurisés, avec CI.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">Node.js · MongoDB · Docker Compose</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Architecture distribuée</span>
+</a>
 
-		<aside class="astro-RCDZUQ3A">
-	<h2 class="astro-RCDZUQ3A">Intéressé par mon profil ?</h2>
-	<a href="mailto:tchuenkam26@gmail.com" class="astro-BALV45LP">
-		envoyer un message
-		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.2em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M210.3 35.9 23.9 88.4a8 8 0 0 0-1.2 15l85.6 40.5a7.8 7.8 0 0 1 3.8 3.8l40.5 85.6a8 8 0 0 0 15-1.2l52.5-186.4a7.9 7.9 0 0 0-9.8-9.8Zm-99.4 109.2 45.2-45.2"/></g>
-	
-</svg>
-	</a>
-	
-</aside>
-	</div>
+<a href="https://github.com/Loicarthur/Api_F1_Race" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">F1 Race · GraphQL</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API GraphQL synchronisée avec les données officielles OpenF1, métriques Prometheus.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">TypeScript · GraphQL · node-cron · Jest</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ API &amp; observabilité</span>
+</a>
 
-			<footer class="astro-SZ7XMLTE">
-	<div class="group astro-SZ7XMLTE">
-		<p class="astro-SZ7XMLTE">
-			Designed & Developed in France with <a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>
-			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" aria-hidden="true" stroke="currentcolor" fill="currentcolor" style="--size:1.2em" class="astro-PATNJMLL">
-	<g class="astro-PATNJMLL"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M94.1 184.6c-11.4 33.9-56.6 33.9-56.6 33.9s0-45.2 33.9-56.6m124.5-56.5L128 173.3 82.7 128l67.9-67.9C176.3 34.4 202 34.7 213 36.3a7.8 7.8 0 0 1 6.7 6.7c1.6 11 1.9 36.7-23.8 62.4Z"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M184.6 116.7v64.6a8 8 0 0 1-2.4 5.6l-32.3 32.4a8 8 0 0 1-13.5-4.1l-8.4-41.9m11.3-101.9H74.7a8 8 0 0 0-5.6 2.4l-32.4 32.3a8 8 0 0 0 4.1 13.5l41.9 8.4"/></g>
-	
-</svg>
-		</p>
-		<p class="astro-SZ7XMLTE">&copy; 2024 Loic Tchuenkam</p>
-	</div>
-	<p class="socials astro-SZ7XMLTE">
-		<a href="https://www.linkedin.com/in/loic-arthur-tchuenkam-a268a7256/" class="astro-SZ7XMLTE"> Linkedin</a>
-		<a href="https://github.com/Loicarthur" class="astro-SZ7XMLTE"> GitHub</a>
-	</p>
+<a href="https://github.com/am-marcos/taskfllow" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">TaskFlow</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Gestion de tâches collaborative en temps réel, projet d’équipe de Master 2.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">Supabase Realtime · Azure Functions · k6</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Serverless &amp; travail en équipe</span>
+</a>
+
+<a href="https://github.com/Loicarthur/ShopFlutter" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">FlutCom</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Application e-commerce en architecture MVVM.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">Flutter · Dart · Provider</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Mobile natif multi-plateforme</span>
+</a>
+
+<a href="https://github.com/Loicarthur/Simulio" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Simulio</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
+<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Simulateur de prêt immobilier avec gestion des clients et des simulations.</span>
+<span class="mono" style="font-size: 11px; color: #A19D94">FastAPI · SQLAlchemy · React · JWT</span>
+<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Python full stack</span>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- 03 METHODE -->
+<section id="methode" class="wrap" style="padding-top: clamp(96px, 12vw, 170px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 20px; max-width: 920px">
+<span class="mono" style="color: #A19D94">03 — Méthode</span>
+<h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Comment je pilote un projet.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 680px; text-wrap: pretty">Chaque étape renvoie à un livrable qui existe, dans mes dépôts ou chez un client.</p>
+</div>
+<div style="margin-top: 56px; display: flex; flex-direction: column">
+
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; gap: 20px; align-items: baseline">
+<span class="mono" style="color: var(--accent)">01</span>
+<h3 class="disp" style="font-size: clamp(30px, 3.4vw, 44px)">Cadrer</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Contexte, besoins explicites et implicites, objectifs mesurables, budget, risques et plan de mitigation, avant d’écrire la moindre ligne de code.</p>
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve · Note de cadrage Decotec Connect</span>
+</div>
+</div>
+
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; gap: 20px; align-items: baseline">
+<span class="mono" style="color: var(--accent)">02</span>
+<h3 class="disp" style="font-size: clamp(30px, 3.4vw, 44px)">Prioriser</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Distinguer l’urgent de ce qui peut attendre, et documenter pourquoi. Chaque idée repoussée est datée et argumentée pour ne rien perdre.</p>
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve · Mes projets personnels</span>
+</div>
+</div>
+
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; gap: 20px; align-items: baseline">
+<span class="mono" style="color: var(--accent)">03</span>
+<h3 class="disp" style="font-size: clamp(30px, 3.4vw, 44px)">Construire</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Une architecture documentée, des fonctions métier pures et testées, des types stricts. Le code doit pouvoir être repris par quelqu’un d’autre.</p>
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve · Mes projets personnels</span>
+</div>
+</div>
+
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; gap: 20px; align-items: baseline">
+<span class="mono" style="color: var(--accent)">04</span>
+<h3 class="disp" style="font-size: clamp(30px, 3.4vw, 44px)">Recetter</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Des scénarios de test écrits, exécutés et tracés, et un journal des corrections apportées.</p>
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve · Plan de recette T1–T12, corrections C1–C6</span>
+</div>
+</div>
+
+<div class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; gap: 20px; align-items: baseline">
+<span class="mono" style="color: var(--accent)">05</span>
+<h3 class="disp" style="font-size: clamp(30px, 3.4vw, 44px)">Livrer &amp; suivre</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Intégration continue (lint, typage, tests), builds automatisés, publication et monitoring des erreurs en production.</p>
+<span class="mono" style="color: #A19D94; font-size: 11px">Preuve · GitHub Actions, EAS Submit, Sentry</span>
+</div>
+</div>
+
+</div>
+
+<div class="rv" style="margin-top: 48px; border-radius: 28px; background: #F2EFE8; color: #0D0D0B; padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: baseline">
+<h3 class="disp" style="font-size: clamp(28px, 3.4vw, 44px)">Arbitrages réels, projet Decotec Connect</h3>
+<span class="mono" style="color: #55524B">Décisions de pilotage</span>
+</div>
+<p style="margin: 0; max-width: 720px; font-size: 16px; color: #3A3833; text-wrap: pretty">Un site de pièces détachées et de SAV pour Decotec. Chaque décision a été prise en fonction des enjeux de l'entreprise, puis validée avec elle.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px">
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Vendre sans concurrencer le réseau</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Decotec vend son mobilier via des revendeurs. Vendre en direct sur le site risquait de les court-circuiter.</span>
+<span class="mono" style="font-size: 11px; color: #55524B; text-transform: none; letter-spacing: .02em">Décision · vente directe limitée aux pièces et au SAV ; le mobilier renvoie vers les revendeurs</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Un MVP plutôt que tout faire</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Connexion à l’ERP, espace pro, application mobile, multilingue : les envies dépassaient le temps disponible.</span>
+<span class="mono" style="font-size: 11px; color: #55524B; text-transform: none; letter-spacing: .02em">Décision · périmètre MVP assumé, évolutions listées hors périmètre</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Sécuriser les paiements</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Gérer des données bancaires aurait imposé des contraintes de conformité lourdes à l’entreprise.</span>
+<span class="mono" style="font-size: 11px; color: #55524B; text-transform: none; letter-spacing: .02em">Décision · paiement délégué à Stripe, aucune donnée bancaire chez Decotec</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Mesurer le succès</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Sans objectifs chiffrés, impossible de savoir si le projet atteint son but.</span>
+<span class="mono" style="font-size: 11px; color: #55524B; text-transform: none; letter-spacing: .02em">Décision · KPIs fixés dès le cadrage : conversion, autonomie, qualité, performance</span>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- 04 PARCOURS -->
+<section id="parcours" class="wrap" style="padding-top: clamp(96px, 12vw, 170px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 20px; max-width: 900px">
+<span class="mono" style="color: #A19D94">04 — Parcours</span>
+<h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Des responsabilités qui grandissent.</h2>
+</div>
+
+<!-- DECOTEC FEATURED EXPERIENCE -->
+<article class="proj rv grid-bg" style="margin-top: 56px; border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background-color: #121210; overflow: hidden">
+<div style="padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="mono" style="color: var(--accent)">Expérience · Gestion de projet</span>
+<span class="chip">06/2025 – 07/2026 · Tuffé (Sarthe)</span>
+</div>
+<h3 class="disp" style="font-size: clamp(56px, 8vw, 120px); letter-spacing: -.05em">DECOTEC</h3>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 640px; text-wrap: pretty">Fabricant français de meubles de salle de bains depuis 1974, labellisé Entreprise du Patrimoine Vivant. Deux chantiers en parallèle : quitter l'ERP Sylob pour Odoo, et refondre entièrement le site.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 240px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Mon rôle</span>
+<span style="font-size: 22px; font-weight: 700">Chef de projet</span>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que j'ai piloté</span>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E6E2D9">
+<span class="arrow-li">La refonte complète du site, de la conception de l'arborescence jusqu'à la mise en ligne</span>
+<span class="arrow-li">La coordination des équipes et des différentes étapes, pour garantir la qualité et tenir les délais</span>
+<span class="arrow-li">Le changement d'ERP, en veillant à la fiabilité et à la continuité des données</span>
+<span class="arrow-li">La structuration des contenus et des fiches produits, au service de l'expérience client</span>
+<span class="arrow-li">La transformation des besoins métier en outils qui accélèrent la prise de décision</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ma façon de piloter</span>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E6E2D9">
+<span class="arrow-li">Un découpage en incréments livrés par lots et priorisés avec la méthode MoSCoW</span>
+<span class="arrow-li">Un backlog Kanban partagé et un rétroplanning phasé</span>
+<span class="arrow-li">Un point d'avancement à chaque jalon : où on en est, les difficultés, les décisions à valider</span>
+<span class="arrow-li">De la transparence sur tout ajustement de périmètre, de budget ou de calendrier</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Anticiper plutôt que subir</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div class="node" style="gap: 4px"><span style="font-weight: 600; font-size: 14px">Données ou visuels indisponibles</span><span style="color: #A19D94; font-size: 13px">→ demande anticipée au client, jeu de démonstration préparé en amont</span></div>
+<div class="node" style="gap: 4px"><span style="font-weight: 600; font-size: 14px">Paiement en ligne à risque</span><span style="color: #A19D94; font-size: 13px">→ solution hébergée et plan de repli défini à l'avance</span></div>
+<div class="node" style="gap: 4px"><span style="font-weight: 600; font-size: 14px">Périmètre qui dérive</span><span style="color: #A19D94; font-size: 13px">→ périmètre limité et assumé, parcours simple</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; border-top: 1px dashed rgba(242,239,232,.16); padding-top: 28px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Jalons validés avec le client · projet Decotec Connect</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 0">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J1</span><span style="font-weight: 600; font-size: 14px">Besoin cadré</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J2</span><span style="font-weight: 600; font-size: 14px">Note de cadrage validée</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J3</span><span style="font-weight: 600; font-size: 14px">Conception validée</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J4</span><span style="font-weight: 600; font-size: 14px">Démos intermédiaires</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J5</span><span style="font-weight: 600; font-size: 14px">Recette validée</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 14px 16px 0 0; border-top: 2px solid var(--accent)"><span class="mono" style="color: var(--accent); font-size: 11px">J6</span><span style="font-weight: 600; font-size: 14px">Clôture et bilan</span></li>
+</ol>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px">
+<span class="chip">Note de cadrage</span><span class="chip">KPIs</span><span class="chip">Rétroplanning</span><span class="chip">Budget prévisionnel</span><span class="chip">Risques & mitigation</span><span class="chip">Spécifications</span><span class="chip">Plan de recette</span><span class="chip">Reporting client</span>
+</div>
+</div>
+
+<div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
+<p style="margin: 0; font-size: 17px; color: #F2EFE8; text-wrap: pretty">Je sais piloter un projet dans une vraie entreprise : comprendre ses enjeux, coordonner les personnes et les étapes, anticiper les risques, rendre compte avec transparence et tenir les délais jusqu'à la livraison.</p>
+</div>
+</div>
+</article>
+
+<div style="margin-top: 24px; display: flex; flex-direction: column">
+
+<article class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 48px; padding: 40px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94">10/2024 – aujourd’hui</span>
+<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 30px; letter-spacing: -.03em; line-height: 1.05">Sankéa</h3>
+<span style="color: var(--accent); font-weight: 600; font-size: 15px">Fondateur · CEO / CTO</span>
+<span style="color: #A19D94; font-size: 14px">Projet entrepreneurial</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px 32px; grid-column: span 2">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Contexte</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">La réservation de coiffure afro est fragmentée entre DM, virements et agendas papier.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Responsabilités</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Produit, architecture, développement, publication, onboarding des salons partenaires.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Réalisations</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">App iOS publiée sur l’App Store et back-office d’administration.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: var(--accent); font-size: 11px">Impact</span><span style="font-size: 15px; color: #F2EFE8; text-wrap: pretty">Un produit réel en production, utilisé par des salons partenaires.</span></div>
+</div>
+</article>
+
+<article class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 48px; padding: 40px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94">06/2024 – 05/2025</span>
+<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 30px; letter-spacing: -.03em; line-height: 1.05">Tradespotting</h3>
+<span style="color: var(--accent); font-weight: 600; font-size: 15px">Développeur full stack · Angular et Node.js</span>
+<span style="color: #A19D94; font-size: 14px">Paris</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px 32px; grid-column: span 2">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Contexte</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Produit web métier développé avec les équipes business et les business analysts.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Responsabilités</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Concevoir et livrer des fonctionnalités de bout en bout, avec la qualité et la performance attendues.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Réalisations</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Fonctionnalités Angular 18 et API Express/PostgreSQL, tests unitaires, fonctionnels et de non-régression, CI/CD.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: var(--accent); font-size: 11px">Impact</span><span style="font-size: 15px; color: #F2EFE8; text-wrap: pretty">Des mises en production plus sûres grâce aux tests et à l’automatisation.</span></div>
+</div>
+</article>
+
+<article class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 48px; padding: 40px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94">06/2023 – 08/2023</span>
+<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 30px; letter-spacing: -.03em; line-height: 1.05">Free</h3>
+<span style="color: var(--accent); font-weight: 600; font-size: 15px">Architecte des SI · stage</span>
+<span style="color: #A19D94; font-size: 14px">Limoges</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px 32px; grid-column: span 2">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Contexte</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Système d’information d’un opérateur télécom, avec de nombreux flux entre services.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Responsabilités</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Contribuer à la conception technique et aux décisions d’architecture applicative.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Réalisations</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Structuration des flux de données entre services, développement backend Node.js et MySQL.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: var(--accent); font-size: 11px">Impact</span><span style="font-size: 15px; color: #F2EFE8; text-wrap: pretty">Des échanges de données plus cohérents et fiables entre applications.</span></div>
+</div>
+</article>
+
+<article class="rv" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 48px; padding: 40px 0; border-top: 1px solid rgba(242,239,232,.14)">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94">06/2021 – 08/2021</span>
+<h3 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 30px; letter-spacing: -.03em; line-height: 1.05">MTN Cameroun</h3>
+<span style="color: var(--accent); font-weight: 600; font-size: 15px">Développeur frontend · stage</span>
+<span style="color: #A19D94; font-size: 14px">Yaoundé</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px 32px; grid-column: span 2">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Contexte</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Première expérience en entreprise, chez un opérateur télécom.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Responsabilités</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Développer des interfaces web performantes et responsives.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: #A19D94; font-size: 11px">Réalisations</span><span style="font-size: 15px; color: #E6E2D9; text-wrap: pretty">Interfaces en HTML5, CSS3 et JavaScript, adaptées à tous les écrans.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="mono" style="color: var(--accent); font-size: 11px">Impact</span><span style="font-size: 15px; color: #F2EFE8; text-wrap: pretty">Les fondations : rigueur du front et sens de l’utilisateur.</span></div>
+</div>
+</article>
+
+</div>
+<div class="rv" style="margin-top: 16px; padding: 32px 0; border-top: 1px solid rgba(242,239,232,.14); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px">
+<span class="mono" style="color: #A19D94">Formation</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">Master Lead Développeur</span><span style="color: #A19D94; font-size: 14px">MyDigitalSchool Paris · 2024 – 2026 · développement web/mobile, DevOps, management d'équipes techniques</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 600">Licence 3 Architecte des Systèmes Informatiques</span><span style="color: #A19D94; font-size: 14px">École IT · 2023 · architecture SI, flux de données, sécurisation</span></div>
+</div>
+</section>
+
+<!-- 05 STACK -->
+<section id="stack" class="wrap" style="padding-top: clamp(96px, 12vw, 170px)">
+<div class="rv" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="mono" style="color: #A19D94">05 — Stack</span>
+<h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Les outils, avec leur preuve.</h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #A19D94; font-size: 15px">Uniquement ce que j'ai utilisé sur un projet présenté ici ou dans mes expériences.</p>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Mobile</span><span class="mono" style="color: #6E6A62; font-size: 11px">01</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">Expo Router</span><span class="chip">Flutter</span><span class="chip">Dart</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Demingo, FlutCom</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Frontend</span><span class="mono" style="color: #6E6A62; font-size: 11px">02</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Angular 18</span><span class="chip">Tailwind</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Back-offices, Tradespotting, AlternaJobs</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Backend</span><span class="mono" style="color: #6E6A62; font-size: 11px">03</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Supabase</span><span class="chip">Edge Functions</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Python</span><span class="chip">Odoo</span><span class="chip">FastAPI</span><span class="chip">Spring Boot</span><span class="chip">GraphQL</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Decotec, Tradespotting, labo</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Données</span><span class="mono" style="color: #6E6A62; font-size: 11px">04</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">PostgreSQL</span><span class="chip">RLS</span><span class="chip">MySQL</span><span class="chip">MongoDB</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Decotec, Free, F1</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Services</span><span class="mono" style="color: #6E6A62; font-size: 11px">05</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Stripe</span><span class="chip">Stripe Connect</span><span class="chip">Sentry</span><span class="chip">Resend</span><span class="chip">Google Maps</span><span class="chip">n8n</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Demingo, AlternaJobs</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">DevOps &amp; méthode</span><span class="mono" style="color: #6E6A62; font-size: 11px">06</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">GitHub Actions</span><span class="chip">EAS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">OpenShift</span><span class="chip">Prometheus</span><span class="chip">Scrum</span><span class="chip">Kanban</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Tradespotting, labo</span>
+</div>
+
+</div>
+</section>
+
+<!-- 06 CONTACT -->
+<section id="contact" class="wrap" style="padding-top: clamp(110px, 14vw, 200px); padding-bottom: 48px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 28px">
+<span class="mono" style="color: #A19D94">06 — Contact</span>
+<h2 class="disp" style="font-size: clamp(56px, 11vw, 168px); letter-spacing: -.05em">Construisons <span style="color: var(--accent)">la suite.</span></h2>
+<p style="margin: 0; max-width: 620px; font-size: 19px; color: #CFCBC2; text-wrap: pretty">Je cherche un CDI où je peux être opérationnel dans le code et utile dans l'organisation : développeur full stack, tech lead ou chef de projet technique. Paris, mobile partout en France.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="mailto:tchuenkam26@gmail.com" class="btn">tchuenkam26@gmail.com <span aria-hidden="true">→</span></a></div>
+</div>
+<div style="margin-top: 64px; display: flex; flex-direction: column; border-bottom: 1px solid rgba(242,239,232,.14)">
+<a href="mailto:tchuenkam26@gmail.com" class="link-row"><span class="disp" style="font-size: clamp(28px, 4vw, 48px)">Email</span><span class="mono" style="color: #A19D94">tchuenkam26@gmail.com ↗</span></a>
+<a href="https://www.linkedin.com/in/loic-arthur-tchuenkam-a268a7256/" class="link-row"><span class="disp" style="font-size: clamp(28px, 4vw, 48px)">LinkedIn</span><span class="mono" style="color: #A19D94">loic-arthur-tchuenkam ↗</span></a>
+<a href="https://github.com/Loicarthur" class="link-row"><span class="disp" style="font-size: clamp(28px, 4vw, 48px)">GitHub</span><span class="mono" style="color: #A19D94">Loicarthur ↗</span></a>
+<a href="/Loic_Tchuenkam_FlowCV_Resume_2026-04-28.pdf" class="link-row"><span class="disp" style="font-size: clamp(28px, 4vw, 48px)">CV</span><span class="mono" style="color: #A19D94">PDF ↗</span></a>
+</div>
+<footer style="margin-top: 64px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6E6A62; font-size: 13px">
+<span>© 2026 Loïc Tchuenkam</span>
+<span class="mono" style="font-size: 11px">Idée → Conception → Organisation → Développement → Livraison</span>
 </footer>
-		</div>
+</section>
 
-		
-
-		
-	</body>
+</div>
+</body>
 </html>
