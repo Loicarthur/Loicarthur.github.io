@@ -36,6 +36,10 @@ a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
 .btn-ghost:hover{border-color:#F2EFE8;color:#F2EFE8;background:rgba(242,239,232,.06)}
 .phone{border-radius:40px;padding:7px;background:#1C1C19;border:1px solid rgba(242,239,232,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
 .phone img{display:block;width:100%;height:auto;border-radius:33px}
+.browser{border-radius:14px;overflow:hidden;background:#1C1C19;border:1px solid rgba(242,239,232,.16);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.browser .bar{display:flex;gap:6px;align-items:center;height:26px;padding:0 12px;border-bottom:1px solid rgba(242,239,232,.08)}
+.browser .bar i{width:8px;height:8px;border-radius:50%;background:rgba(242,239,232,.22)}
+.browser img{display:block;width:100%;height:auto}
 .arrow-li{display:flex;gap:12px;align-items:baseline}
 .arrow-li::before{content:"→";color:var(--accent);font-family:'Geist Mono',monospace;flex:none}
 .node{border:1px solid rgba(242,239,232,.18);border-radius:16px;padding:16px 18px;background:#11110F;display:flex;flex-direction:column;gap:6px}
@@ -101,6 +105,14 @@ a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
 <div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Stack</dt><dd style="margin: 0; font-weight: 600">Next.js · NestJS · PostgreSQL · BullMQ</dd></div>
 </dl>
 </div>
+</section>
+
+<!-- HERO VISUAL -->
+<section class="wrap" style="padding-top: 8px">
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-dashboard.webp" alt="Tableau de bord OpsFlow : tickets ouverts, critiques, résolus, SLA en retard et activité récente" loading="eager"></div>
+<figcaption class="mono" style="color: #A19D94; font-size: 11px">Tableau de bord · données de démonstration</figcaption>
+</figure>
 </section>
 
 <!-- 01 PROBLEM -->
@@ -172,6 +184,39 @@ a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
 <span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Dashboard &amp; API</span>
 <span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Tickets par statut et priorité, SLA en retard, activité récente. API REST documentée avec Swagger.</span>
 </div>
+
+</div>
+<div style="margin-top: 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 40px 28px">
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-signup.webp" alt="Formulaire de création d’organisation" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 16px">Créer son organisation</span><span style="color: #A19D94; font-size: 14px">Inscription : l’utilisateur devient propriétaire de son organisation.</span></figcaption>
+</figure>
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-tickets.webp" alt="Liste des tickets avec filtres" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 16px">Suivre les tickets</span><span style="color: #A19D94; font-size: 14px">Filtres par statut et priorité, badges lisibles en un coup d’œil.</span></figcaption>
+</figure>
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-ticket.webp" alt="Détail d’un ticket critique" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 16px">Traiter un incident</span><span style="color: #A19D94; font-size: 14px">Statut, priorité, assignation, résolution et historique du ticket.</span></figcaption>
+</figure>
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-workflows.webp" alt="Règle de workflow active" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 16px">Automatiser</span><span style="color: #A19D94; font-size: 14px">Une règle active : alerter l’astreinte dès qu’un ticket critique est créé.</span></figcaption>
+</figure>
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-team.webp" alt="Gestion des membres et invitation" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">05</span><span style="font-weight: 600; font-size: 16px">Gérer l’équipe</span><span style="color: #A19D94; font-size: 14px">Invitations par e-mail avec choix du rôle.</span></figcaption>
+</figure>
+
+<figure class="rv" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-audit.webp" alt="Journal d’audit" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">06</span><span style="font-weight: 600; font-size: 16px">Tout tracer</span><span style="color: #A19D94; font-size: 14px">Chaque action sensible est consignée dans le journal d’audit.</span></figcaption>
+</figure>
 
 </div>
 </section>

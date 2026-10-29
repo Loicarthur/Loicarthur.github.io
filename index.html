@@ -37,6 +37,10 @@ a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
 .btn-ghost:hover{border-color:#F2EFE8;background:rgba(242,239,232,.06);color:#F2EFE8}
 .phone{border-radius:42px;padding:7px;background:#1C1C19;border:1px solid rgba(242,239,232,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.6) inset}
 .phone img{display:block;width:100%;height:auto;border-radius:35px}
+.browser{border-radius:14px;overflow:hidden;background:#1C1C19;border:1px solid rgba(242,239,232,.16);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.browser .bar{display:flex;gap:6px;align-items:center;height:26px;padding:0 12px;border-bottom:1px solid rgba(242,239,232,.08)}
+.browser .bar i{width:8px;height:8px;border-radius:50%;background:rgba(242,239,232,.22)}
+.browser img{display:block;width:100%;height:auto}
 .arrow-li{display:flex;gap:12px;align-items:baseline}
 .arrow-li::before{content:"→";color:var(--accent);font-family:'Geist Mono',monospace}
 .proj{transition:border-color .4s ease}
@@ -367,30 +371,45 @@ html{scroll-behavior:auto}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span class="mono" style="color: var(--accent)">Parcours client</span><span style="color: #A19D94; font-size: 14px">Du devis au suivi du déménagement</span></div>
 <div role="list" aria-label="Parcours client" style="display: flex; gap: clamp(14px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; scrollbar-width: thin; scrollbar-color: rgba(242,239,232,.3) transparent">
 
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-accueil.webp" alt="Accueil Demingo : espace client ou prestataire" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 15px">Choisir son espace</span></figcaption>
 </figure>
+
+
+
 
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-adresses.webp" alt="Carte et saisie des points de départ et d’arrivée" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 15px">Indiquer ses adresses</span></figcaption>
 </figure>
 
+
+
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-inventaire.webp" alt="Inventaire des meubles avec estimation du véhicule" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 15px">Déclarer son inventaire</span></figcaption>
 </figure>
+
+
+
 
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-devis.webp" alt="Récapitulatif du déménagement et prix" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 15px">Obtenir son devis</span></figcaption>
 </figure>
 
+
+
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-suivi.webp" alt="Suivi de la réservation en temps réel" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">05</span><span style="font-weight: 600; font-size: 15px">Suivre son déménagement</span></figcaption>
 </figure>
+
+
 
 </div>
 </div>
@@ -399,25 +418,37 @@ html{scroll-behavior:auto}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span class="mono" style="color: var(--accent)">Espace prestataire</span><span style="color: #A19D94; font-size: 14px">De l’inscription à la mission</span></div>
 <div role="list" aria-label="Espace prestataire" style="display: flex; gap: clamp(14px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; scrollbar-width: thin; scrollbar-color: rgba(242,239,232,.3) transparent">
 
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-pro-inscription.webp" alt="Inscription prestataire : véhicule et documents requis" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 15px">S’inscrire et être vérifié</span></figcaption>
 </figure>
+
+
+
 
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-pro-dispo.webp" alt="Disponibilité, plage horaire et zone d’intervention" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 15px">Se rendre disponible</span></figcaption>
 </figure>
 
+
+
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-pro-missions.webp" alt="Liste des missions disponibles" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 15px">Choisir une mission</span></figcaption>
 </figure>
 
+
+
+
 <figure role="listitem" style="flex: 0 0 clamp(160px, 17vw, 210px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
 <div class="phone"><img src="/assets/img/dm-pro-route.webp" alt="Mission en cours, en route vers le client" loading="lazy"></div>
 <figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 15px">Réaliser la mission</span></figcaption>
 </figure>
+
+
 
 </div>
 </div>
@@ -496,6 +527,65 @@ html{scroll-behavior:auto}
 <span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
 <p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais concevoir une architecture backend robuste et évolutive : multi-tenant, sécurisée, asynchrone, testée et livrée en continu.</p>
 </div>
+</div>
+
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 44px; border-top: 1px solid rgba(242,239,232,.12); padding-top: 40px; min-width: 0">
+
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span class="mono" style="color: var(--accent)">L’application</span><span style="color: #A19D94; font-size: 14px">Données de démonstration</span></div>
+<div role="list" aria-label="L’application" style="display: flex; gap: clamp(14px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; scrollbar-width: thin; scrollbar-color: rgba(242,239,232,.3) transparent">
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-dashboard.webp" alt="Dashboard : tickets ouverts, critiques, résolus et SLA en retard, activité récente" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">01</span><span style="font-weight: 600; font-size: 15px">Tableau de bord</span></figcaption>
+</figure>
+
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-tickets.webp" alt="Liste des tickets avec filtres par statut et priorité" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">02</span><span style="font-weight: 600; font-size: 15px">Suivre les tickets</span></figcaption>
+</figure>
+
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-ticket.webp" alt="Détail d’un ticket critique : statut, priorité, assignation et historique" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">03</span><span style="font-weight: 600; font-size: 15px">Traiter un incident</span></figcaption>
+</figure>
+
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-workflows.webp" alt="Règle de workflow active qui alerte l’astreinte sur les tickets critiques" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">04</span><span style="font-weight: 600; font-size: 15px">Automatiser</span></figcaption>
+</figure>
+
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-team.webp" alt="Invitation d’un membre par e-mail avec choix du rôle" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">05</span><span style="font-weight: 600; font-size: 15px">Gérer l’équipe</span></figcaption>
+</figure>
+
+
+
+
+<figure role="listitem" style="flex: 0 0 clamp(280px, 36vw, 480px); margin: 0; display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start">
+<div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/of-audit.webp" alt="Journal d’audit des actions de l’organisation" loading="lazy"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px"><span class="mono" style="color: var(--accent); font-size: 11px">06</span><span style="font-weight: 600; font-size: 15px">Tout tracer</span></figcaption>
+</figure>
+
+
+</div>
+</div>
+
 </div>
 
 </article>
