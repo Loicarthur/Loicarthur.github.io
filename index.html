@@ -15,7 +15,7 @@
 <title>Loïc Tchuenkam — Développeur &amp; chef de projet</title>
 <meta name="description" content="Loïc Tchuenkam conçoit, développe et pilote des produits digitaux, de l'idée à la mise en production. Fondateur et développeur de Sankéa, marketplace mobile de coiffure afro.">
 <meta property="og:title" content="Loïc Tchuenkam — Je conçois, développe et pilote des produits digitaux">
-<meta property="og:description" content="Software Developer · Chef de projet · Product Builder. Sankéa, Decotec, Demingo.">
+<meta property="og:description" content="Software Developer · Chef de projet · Product Builder. Sankéa, Decotec, Demingo, OpsFlow.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -348,6 +348,7 @@ html{scroll-behavior:auto}
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Stripe</span><span class="chip">IA</span>
 </div>
+
 </div>
 <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
 
@@ -422,60 +423,79 @@ html{scroll-behavior:auto}
 
 </article>
 
+<article class="proj rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 32px; background: #121210; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="mono" style="color: var(--accent)">Projet perso · SaaS B2B</span>
+<span class="chip">MVP · 2026</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 class="disp" style="font-size: clamp(44px, 5.5vw, 76px); letter-spacing: -.045em">OPSFLOW</h3>
+<p style="margin: 0; font-size: 17px; color: #CFCBC2">SaaS B2B de gestion d’incidents et d’automatisation des workflows</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Mon rôle</span>
+<span style="font-weight: 600">Concepteur &amp; développeur full stack</span>
+</div>
+<p style="margin: 0; color: #E6E2D9; text-wrap: pretty">Dans une équipe support ou IT, les incidents se perdent entre e-mails et tableurs, et les mêmes actions sont refaites à la main. OpsFlow centralise les tickets d’une organisation et automatise leur traitement : des règles « si… alors… » assignent, notifient ou clôturent sans intervention.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Ce que j'ai fait</span>
+<span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Architecture multi-tenant : une organisation, ses membres et 5 rôles (RBAC)</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Moteur de workflows piloté par les données : conditions et actions en JSON, extensible sans toucher au code</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Traitements asynchrones avec file de jobs, retries et tâches différées</span><span class="arrow-li" style="font-size: 15px; color: #E6E2D9">Audit log, dashboard SLA, API REST documentée (Swagger), tests et CI</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">NestJS</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">BullMQ</span><span class="chip">Redis</span><span class="chip">Docker</span>
+</div>
+<a href="https://github.com/Loicarthur/OpsFlow-SaaS-B2B-de-gestion-d-incidents-et-automatisation-des-workflows" class="btn-ghost" style="align-self: flex-start; min-height: 44px; padding: 0 18px; font-size: 14px">Voir le code sur GitHub <span aria-hidden="true">↗</span></a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; min-width: 0">
+
+<div class="zoom node" style="flex: 1; border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; justify-content: center; background: #0D0D0B">
+<span class="mono" style="color: #A19D94; font-size: 11px">Le moteur de workflows</span>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Événement ticket</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">création · statut · priorité</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
 </div>
 
-<!-- LAB -->
-<div class="rv" style="margin-top: clamp(64px, 8vw, 112px); display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
-<h3 class="disp" style="font-size: clamp(32px, 4vw, 52px)">Labo technique</h3>
-<p style="margin: 0; max-width: 420px; color: #A19D94; font-size: 15px">Projets d'école et d'exploration, choisis pour la profondeur technique qu'ils montrent.</p>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node node-acc" style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Évaluation des règles</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">conditions JSON</span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
 
-<a href="https://github.com/Loicarthur/Timer-Service-API-Spring-Boot-d-ploy-e-sur-OpenShift-CI-CD-Serverless-" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Timer Service · OpenShift</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API REST Spring Boot déployée en serverless (Knative, scale-to-zero) et en standard, avec CI/CD Tekton.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">Java 21 · Spring Boot 3.5 · Tekton · Prometheus</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Cloud &amp; CI/CD</span>
-</a>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node " style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">File de jobs</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">BullMQ · retries</span>
+</div>
+<span aria-hidden="true" style="align-self: center; color: var(--accent); font-family: 'Geist Mono', monospace; line-height: 1">↓</span>
+</div>
 
-<a href="https://github.com/Loicarthur/MicroserviceApiF1" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Microservices F1</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API Gateway et trois services (auth, users, timer) conteneurisés, avec CI.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">Node.js · MongoDB · Docker Compose</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Architecture distribuée</span>
-</a>
-
-<a href="https://github.com/Loicarthur/Api_F1_Race" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">F1 Race · GraphQL</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">API GraphQL synchronisée avec les données officielles OpenF1, métriques Prometheus.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">TypeScript · GraphQL · node-cron · Jest</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ API &amp; observabilité</span>
-</a>
-
-<a href="https://github.com/am-marcos/taskfllow" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">TaskFlow</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Gestion de tâches collaborative en temps réel, projet d’équipe de Master 2.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">Supabase Realtime · Azure Functions · k6</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Serverless &amp; travail en équipe</span>
-</a>
-
-<a href="https://github.com/Loicarthur/ShopFlutter" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">FlutCom</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Application e-commerce en architecture MVVM.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">Flutter · Dart · Provider</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Mobile natif multi-plateforme</span>
-</a>
-
-<a href="https://github.com/Loicarthur/Simulio" class="proj" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #0F0F0D; color: #F2EFE8">
-<div style="display: flex; justify-content: space-between; gap: 12px"><span style="font-weight: 600; font-size: 17px">Simulio</span><span aria-hidden="true" style="color: #6E6A62">↗</span></div>
-<span style="font-size: 14px; color: #CFCBC2; text-wrap: pretty">Simulateur de prêt immobilier avec gestion des clients et des simulations.</span>
-<span class="mono" style="font-size: 11px; color: #A19D94">FastAPI · SQLAlchemy · React · JWT</span>
-<span style="margin-top: auto; font-size: 13px; color: var(--accent)">→ Python full stack</span>
-</a>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div class="node node-acc" style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<span style="font-weight: 600; font-size: 15px">Actions automatiques</span>
+<span class="mono" style="color: #A19D94; font-size: 11px; text-align: right">assigner · notifier · clôturer</span>
+</div>
 
 </div>
+
 </div>
+
+<div style="border-radius: 22px; border: 1px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ça démontre</span>
+<p style="margin: 0; font-size: 16px; color: #F2EFE8; text-wrap: pretty">Je sais concevoir une architecture backend robuste et évolutive : multi-tenant, sécurisée, asynchrone, testée et livrée en continu.</p>
+</div>
+</div>
+
+</article>
+
+</div>
+
 </section>
 
 <!-- 03 METHODE -->
@@ -720,14 +740,14 @@ html{scroll-behavior:auto}
 <span class="mono" style="color: #A19D94">05 — Stack</span>
 <h2 class="disp" style="font-size: clamp(36px, 5vw, 68px)">Les outils, avec leur preuve.</h2>
 </div>
-<p style="margin: 0; max-width: 380px; color: #A19D94; font-size: 15px">Uniquement ce que j'ai utilisé sur un projet présenté ici ou dans mes expériences.</p>
+<p style="margin: 0; max-width: 380px; color: #A19D94; font-size: 15px">Les outils que j'utilise sur mes projets et dans mes expériences.</p>
 </div>
 <div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Mobile</span><span class="mono" style="color: #6E6A62; font-size: 11px">01</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">Expo Router</span><span class="chip">Flutter</span><span class="chip">Dart</span></div>
-<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Demingo, FlutCom</span>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Demingo</span>
 </div>
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
@@ -738,14 +758,14 @@ html{scroll-behavior:auto}
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Backend</span><span class="mono" style="color: #6E6A62; font-size: 11px">03</span></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Supabase</span><span class="chip">Edge Functions</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Python</span><span class="chip">Odoo</span><span class="chip">FastAPI</span><span class="chip">Spring Boot</span><span class="chip">GraphQL</span></div>
-<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Decotec, Tradespotting, labo</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">Supabase</span><span class="chip">Edge Functions</span><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Express</span><span class="chip">Python</span><span class="chip">Odoo</span><span class="chip">Spring Boot</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, OpsFlow, Decotec, Tradespotting, Free</span>
 </div>
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">Données</span><span class="mono" style="color: #6E6A62; font-size: 11px">04</span></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">PostgreSQL</span><span class="chip">RLS</span><span class="chip">MySQL</span><span class="chip">MongoDB</span></div>
-<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Decotec, Free, F1</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">RLS</span><span class="chip">Redis</span><span class="chip">MySQL</span><span class="chip">MongoDB</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, OpsFlow, Decotec, Tradespotting, Free</span>
 </div>
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
@@ -756,8 +776,8 @@ html{scroll-behavior:auto}
 
 <div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 700; font-size: 18px">DevOps &amp; méthode</span><span class="mono" style="color: #6E6A62; font-size: 11px">06</span></div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">GitHub Actions</span><span class="chip">EAS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">OpenShift</span><span class="chip">Prometheus</span><span class="chip">Scrum</span><span class="chip">Kanban</span></div>
-<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Tradespotting, labo</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip">GitHub Actions</span><span class="chip">EAS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Prometheus</span><span class="chip">Scrum</span><span class="chip">Kanban</span></div>
+<span style="margin-top: auto; font-size: 13px; color: #A19D94; text-wrap: pretty">Vu sur · Sankéa, Tradespotting, Decotec</span>
 </div>
 
 </div>
