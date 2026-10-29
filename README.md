@@ -7,4 +7,4 @@ Site statique (HTML/CSS, sans build), servi par GitHub Pages depuis la branche `
 - `index.html` — page d'accueil
 - `sankea/index.html` — case study Sankéa
 - `assets/` — images et image de partage (Open Graph)
-- `Loic_Tchuenkam_FlowCV_Resume_2026-04-28.pdf` — CV
+- `Loic_Tchuenkam_CV.pdf` — CV
