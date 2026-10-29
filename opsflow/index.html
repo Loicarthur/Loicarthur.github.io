@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D0D0B">
+<meta name="author" content="Loïc Tchuenkam">
+<link rel="canonical" href="https://loicarthur.github.io/opsflow/">
+<meta property="og:url" content="https://loicarthur.github.io/opsflow/">
+<meta property="og:image" content="https://loicarthur.github.io/assets/og.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<title>OpsFlow — Case study · Loïc Tchuenkam</title>
+<meta name="description" content="Case study OpsFlow : SaaS B2B multi-tenant de gestion d'incidents et de workflows automatisés. Architecture NestJS, Next.js, PostgreSQL, BullMQ, CI/CD.">
+<meta property="og:title" content="OpsFlow — Case study">
+<meta property="og:description" content="SaaS B2B multi-tenant : RBAC, moteur de règles data-driven, jobs asynchrones et pipeline CI/CD complet.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0D0D0B}
+html{scroll-behavior:smooth}
+a{color:#F2EFE8;text-decoration:none}a:hover{color:var(--accent)}
+*{box-sizing:border-box}
+::selection{background:var(--accent);color:#0D0D0B}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-left:clamp(20px,4vw,64px);padding-right:clamp(20px,4vw,64px)}
+.mono{font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.disp{font-family:'Archivo','Arial Narrow',Arial,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.035em;line-height:.92;margin:0}
+.chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border:1px solid rgba(242,239,232,.16);border-radius:999px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#D8D4CB;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--accent);color:#0D0D0B;font-weight:600;font-size:15px;transition:transform .25s ease,box-shadow .25s ease}
+.btn:hover{color:#0D0D0B;transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--accent)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1px solid rgba(242,239,232,.28);color:#F2EFE8;font-weight:500;font-size:15px}
+.btn-ghost:hover{border-color:#F2EFE8;color:#F2EFE8;background:rgba(242,239,232,.06)}
+.phone{border-radius:40px;padding:7px;background:#1C1C19;border:1px solid rgba(242,239,232,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.phone img{display:block;width:100%;height:auto;border-radius:33px}
+.arrow-li{display:flex;gap:12px;align-items:baseline}
+.arrow-li::before{content:"→";color:var(--accent);font-family:'Geist Mono',monospace;flex:none}
+.node{border:1px solid rgba(242,239,232,.18);border-radius:16px;padding:16px 18px;background:#11110F;display:flex;flex-direction:column;gap:6px}
+.node-acc{border-color:var(--accent);background:rgba(255,122,47,.07)}
+.sec-h{display:flex;flex-direction:column;gap:18px;max-width:920px}
+.strip{display:flex;gap:clamp(16px,2.4vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 28px;scrollbar-width:thin;scrollbar-color:rgba(242,239,232,.3) transparent}
+.strip>figure{scroll-snap-align:start;flex:0 0 clamp(200px,22vw,260px);margin:0;display:flex;flex-direction:column;gap:16px}
+.strip .phone{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.strip>figure:hover .phone{transform:translateY(-10px)}
+.rule{border-top:1px solid rgba(242,239,232,.14);padding:28px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px 40px}
+.vline{width:2px;height:28px;background:linear-gradient(var(--accent),rgba(255,122,47,.2));margin:0 auto}
+.grid-bg{background-image:linear-gradient(rgba(242,239,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(242,239,232,.045) 1px,transparent 1px);background-size:56px 56px}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes flow{from{background-position:0 0}to{background-position:0 24px}}
+.in{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.45s}
+.fl1{animation:float 7s ease-in-out infinite}.fl2{animation:float 8s ease-in-out -3s infinite}
+.dot{animation:pulse 2.4s ease-in-out infinite}
+.pipe{width:2px;height:40px;margin:0 auto;background-image:linear-gradient(var(--accent) 50%,transparent 50%);background-size:2px 12px;animation:flow 1.2s linear infinite}
+@supports (animation-timeline: view()){
+.rv{animation:up linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+.px-up{animation:pxu linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+@keyframes pxu{from{transform:translateY(50px)}to{transform:translateY(-50px)}}
+}
+@media (max-width:760px){.hide-sm{display:none !important}.disp{font-stretch:105%}.hero-phones{height:460px !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<div style="--accent: #FF7A2F; background: #0D0D0B; color: #F2EFE8; font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.55; overflow-x: hidden; -webkit-font-smoothing: antialiased">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(13,13,11,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(242,239,232,.08)">
+<nav class="wrap" aria-label="Navigation du case study" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px">
+<a href="/" style="display: flex; align-items: center; gap: 10px; font-size: 14px; min-height: 44px"><span aria-hidden="true">←</span> Loïc Tchuenkam</a>
+<div class="hide-sm mono" style="display: flex; gap: 22px; font-size: 11px; color: #A19D94">
+<a href="#probleme">01 Problème</a><a href="#produit">02 Produit</a><a href="#archi">03 Archi</a><a href="#defis">05 Défis</a><a href="#choix">06 Choix</a>
+</div>
+<a href="/#contact" class="btn" style="min-height: 44px; padding: 0 18px; font-size: 14px">Me contacter</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="wrap grid-bg" style="padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 6vw, 80px)">
+<div style="display: flex; flex-direction: column; gap: 28px; max-width: 1000px">
+<div class="in" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<span class="mono" style="color: #A19D94">Case study · Projet perso</span>
+<span class="chip">MVP fonctionnel · 2026</span>
+<span class="chip">Code public</span>
+</div>
+<h1 class="disp in d1" style="font-size: clamp(72px, 12vw, 184px); letter-spacing: -.05em">OPSFLOW</h1>
+<p class="in d2" style="margin: 0; font-size: clamp(20px, 2vw, 26px); color: #F2EFE8; max-width: 780px; text-wrap: pretty; font-weight: 500">Un SaaS B2B multi-tenant de gestion d'incidents et de workflows automatisés, avec contrôle d'accès par rôles, moteur de règles piloté par les données et pipeline CI/CD complet.</p>
+<div class="in d3" style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://github.com/Loicarthur/OpsFlow-SaaS-B2B-de-gestion-d-incidents-et-automatisation-des-workflows" class="btn">Voir le code sur GitHub <span aria-hidden="true">↗</span></a>
+<a href="/#projets" class="btn-ghost">Autres projets</a>
+</div>
+<dl class="in d4" style="margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 20px; border-top: 1px solid rgba(242,239,232,.14); padding-top: 24px">
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Rôle</dt><dd style="margin: 0; font-weight: 600">Concepteur · développeur full stack</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Type</dt><dd style="margin: 0; font-weight: 600">SaaS B2B · ITSM léger</dd></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><dt class="mono" style="color: #A19D94; font-size: 11px">Stack</dt><dd style="margin: 0; font-weight: 600">Next.js · NestJS · PostgreSQL · BullMQ</dd></div>
+</dl>
+</div>
+</section>
+
+<!-- 01 PROBLEM -->
+<section id="probleme" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">01 — The problem</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Des incidents qui se perdent, des actions refaites à la main.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 760px; text-wrap: pretty">Dans une équipe support ou IT, les demandes arrivent de partout : e-mails, messages, tableurs. Personne ne sait qui traite quoi, les délais dérapent sans alerte, et chaque ticket urgent demande les mêmes gestes manuels : assigner, prévenir, relancer.</p>
+</div>
+<div class="rv" style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px">
+<div class="node" style="padding: 28px"><span class="mono" style="color: var(--accent); font-size: 11px">Centraliser</span><span style="font-weight: 700; font-size: 20px">Un seul endroit pour les tickets</span><span style="color: #CFCBC2; font-size: 15px">Chaque organisation suit ses incidents et demandes, avec statut, priorité et responsable.</span></div>
+<div class="node" style="padding: 28px"><span class="mono" style="color: var(--accent); font-size: 11px">Contrôler</span><span style="font-weight: 700; font-size: 20px">Qui peut faire quoi</span><span style="color: #CFCBC2; font-size: 15px">Des rôles clairs, du propriétaire au simple lecteur, appliqués partout.</span></div>
+<div class="node" style="padding: 28px"><span class="mono" style="color: var(--accent); font-size: 11px">Automatiser</span><span style="font-weight: 700; font-size: 20px">Les gestes répétitifs</span><span style="color: #CFCBC2; font-size: 15px">Des règles « si… alors… » qui assignent, notifient ou clôturent sans intervention.</span></div>
+</div>
+</section>
+
+<!-- 02 PRODUCT -->
+<section id="produit" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">02 — The product</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Le cycle complet, de l'inscription à l'audit.</h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px">
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">01</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Authentification &amp; multi-tenant</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">L’inscription crée une organisation et son propriétaire. Sessions JWT avec refresh token rotatif et révocable.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">02</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Rôles &amp; permissions</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">5 rôles (Owner, Admin, Manager, Agent, Viewer), invitations par e-mail, changement de rôle, retrait de membres.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">03</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Tickets</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Création, assignation, résolution, filtres, recherche, tri et pagination.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">04</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Workflows automatisés</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Règles « si… alors… » déclenchées par les événements des tickets, extensibles sans toucher au code.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">05</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Jobs asynchrones</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">File de jobs avec retries exponentiels et tâches différées, comme une clôture automatique après X heures.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">06</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Notifications</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Dans l’application et par e-mail via SMTP générique, sans dépendance à un fournisseur.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">07</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Audit log</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Chaque action sensible est tracée : auteur, état avant et après, horodatage.</span>
+</div>
+
+<div class="rv" style="border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="color: var(--accent); font-size: 11px">08</span>
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Dashboard &amp; API</span>
+<span style="color: #CFCBC2; font-size: 15px; text-wrap: pretty">Tickets par statut et priorité, SLA en retard, activité récente. API REST documentée avec Swagger.</span>
+</div>
+
+</div>
+</section>
+
+<!-- 03 ARCHITECTURE -->
+<section id="archi" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">03 — Technical architecture</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Chaque couche à sa place.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 760px; text-wrap: pretty">Un monorepo en trois paquets. Aucune logique métier dans les contrôleurs ni dans les composants React, un seul point d'accès aux données, et des permissions définies une fois puis partagées entre le front et le back.</p>
+</div>
+<div class="rv grid-bg" style="margin-top: 48px; border: 1px solid rgba(242,239,232,.14); border-radius: 28px; padding: clamp(20px, 4vw, 48px); background-color: #0F0F0D; display: flex; flex-direction: column">
+<div class="node"><span style="font-weight: 700; font-size: 18px">Frontend · apps/web</span><span style="color: #A19D94; font-size: 14px">Next.js 16 (App Router), React 19, Tailwind v4, shadcn/ui. Un client API unique qui gère le JWT et son renouvellement transparent.</span></div>
+<div class="pipe" aria-hidden="true" style="margin-top: 6px; margin-bottom: 6px"></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 14px">
+<div class="node node-acc"><span style="font-weight: 700; font-size: 18px">API · apps/api</span><span style="color: #CFCBC2; font-size: 14px">NestJS 12 en TypeScript strict. Logique métier dans les services, validation des entrées, guards RBAC, rate limiting, Swagger.</span></div>
+<div class="node"><span style="font-weight: 700; font-size: 18px">Partagé · packages/shared</span><span style="color: #A19D94; font-size: 14px">Matrice des permissions et énumérations, utilisées à l'identique par l'API et par l'interface.</span></div>
+</div>
+<div class="pipe" aria-hidden="true" style="margin-top: 6px; margin-bottom: 6px"></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 14px">
+<div class="node"><span style="font-weight: 700; font-size: 18px">PostgreSQL 17 · Prisma 6</span><span style="color: #A19D94; font-size: 14px">Données relationnelles, règles de workflow stockées en JSON, un seul point d'accès (PrismaService).</span></div>
+<div class="node"><span style="font-weight: 700; font-size: 18px">Redis 7 · BullMQ</span><span style="color: #A19D94; font-size: 14px">Jobs asynchrones avec retries exponentiels et tâches différées.</span></div>
+</div>
+</div>
+<div class="rv" style="margin-top: 16px; border: 1px solid rgba(242,239,232,.14); border-radius: 22px; padding: 24px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
+<span class="mono" style="color: #A19D94; font-size: 11px; margin-right: 8px">Livraison</span>
+<span class="chip">Push / PR</span><span aria-hidden="true" style="color: var(--accent)">→</span>
+<span class="chip">Typecheck · lint · migrations</span><span aria-hidden="true" style="color: var(--accent)">→</span>
+<span class="chip">Tests Vitest</span><span aria-hidden="true" style="color: var(--accent)">→</span>
+<span class="chip">Build</span><span aria-hidden="true" style="color: var(--accent)">→</span>
+<span class="chip">E2E Playwright</span><span aria-hidden="true" style="color: var(--accent)">→</span>
+<span class="chip">Docker multi-stage</span>
+</div>
+</section>
+
+<!-- 04 WORKFLOW ENGINE -->
+<section class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">04 — Workflow engine</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Des règles en données, <span style="color: var(--accent)">pas en dur.</span></h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 760px; text-wrap: pretty">Une règle, c'est « SI (conditions) ALORS (actions) », stockée en base et déclenchée par un événement sur un ticket. Ajouter un nouveau type d'action, c'est ajouter une seule fonction : aucune règle n'est codée en dur.</p>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px">
+<div class="rv node" style="padding: 26px"><span class="mono" style="color: var(--accent); font-size: 11px">01 · Déclencher</span><span style="font-weight: 700; font-size: 19px">Événement ticket</span><span style="color: #A19D94; font-size: 14px">Création, changement de statut ou de priorité.</span></div>
+<div class="rv node node-acc" style="padding: 26px"><span class="mono" style="color: var(--accent); font-size: 11px">02 · Évaluer</span><span style="font-weight: 700; font-size: 19px">Évaluateur de conditions</span><span style="color: #CFCBC2; font-size: 14px">Les conditions JSON de chaque règle sont testées sur le ticket.</span></div>
+<div class="rv node" style="padding: 26px"><span class="mono" style="color: var(--accent); font-size: 11px">03 · Orchestrer</span><span style="font-weight: 700; font-size: 19px">Worker BullMQ</span><span style="color: #A19D94; font-size: 14px">Exécution asynchrone, retries, jobs différés comme une clôture après X heures.</span></div>
+<div class="rv node node-acc" style="padding: 26px"><span class="mono" style="color: var(--accent); font-size: 11px">04 · Agir</span><span style="font-weight: 700; font-size: 19px">Registre d'actions</span><span style="color: #CFCBC2; font-size: 14px">Assigner, notifier, changer un statut, appeler un webhook signé.</span></div>
+</div>
+</section>
+
+<!-- 05 CHALLENGES -->
+<section id="defis" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">05 — Challenges solved</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Du vrai débogage, pas seulement du code généré.</h2>
+<p style="margin: 0; font-size: 18px; color: #CFCBC2; max-width: 760px; text-wrap: pretty">Les problèmes les plus intéressants sont apparus en faisant tourner la stack complète et la CI pour de vrai.</p>
+</div>
+<div style="margin-top: 40px">
+
+<div class="rule rv">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Une CI rouge depuis le premier commit</span>
+<span style="color: #E6E2D9; font-size: 15px; text-wrap: pretty">Le pipeline échouait à chaque exécution. Diagnostic étape par étape, puis correction de l’ordre des étapes et des dépendances entre jobs.</span>
+</div>
+
+<div class="rule rv">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Un lockfile réservé à Windows</span>
+<span style="color: #E6E2D9; font-size: 15px; text-wrap: pretty">Le lockfile ne contenait que des binaires natifs Windows : l’installation cassait sur les runners Linux. Régénéré pour toutes les plateformes.</span>
+</div>
+
+<div class="rule rv">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Des tests E2E sans backend</span>
+<span style="color: #E6E2D9; font-size: 15px; text-wrap: pretty">Les tests Playwright tournaient contre une API qui n’était jamais démarrée. Les services sont désormais lancés avant les tests.</span>
+</div>
+
+<div class="rule rv">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Des bugs révélés par la stack complète</span>
+<span style="color: #E6E2D9; font-size: 15px; text-wrap: pretty">Faire tourner l’ensemble de bout en bout pour la première fois a fait apparaître des bugs invisibles en isolé, corrigés dans la foulée.</span>
+</div>
+
+<div class="rule rv">
+<span style="font-family: 'Archivo', sans-serif; font-stretch: 112%; font-weight: 800; font-size: 22px; letter-spacing: -.02em; line-height: 1.1">Un réflexe de sécurité sur le code généré</span>
+<span style="color: #E6E2D9; font-size: 15px; text-wrap: pretty">Un fichier d’instructions généré par un outil tentait de faire installer un outil de télémétrie non demandé. Repéré à la relecture et supprimé.</span>
+</div>
+
+</div>
+</section>
+
+<!-- 06 CHOICES -->
+<section id="choix" class="wrap" style="padding-top: clamp(96px, 12vw, 160px)">
+<div class="sec-h rv">
+<span class="mono" style="color: #A19D94">06 — Architecture decisions</span>
+<h2 class="disp" style="font-size: clamp(36px, 5.2vw, 72px)">Des choix assumés, sans sur-ingénierie.</h2>
+</div>
+<div class="rv" style="margin-top: 48px; border-radius: 28px; background: #F2EFE8; color: #0D0D0B; padding: clamp(28px, 4vw, 52px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 24px">
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Workflows data-driven</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Conditions et actions stockées en JSON dans PostgreSQL plutôt que des règles codées en dur.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Refresh tokens hashés et rotatifs</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Rotation à chaque usage : un token volé n’offre qu’une fenêtre d’utilisation unique avant détection.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">SMTP générique</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Nodemailer plutôt qu’un SDK propriétaire : le projet est pensé pour être auto-hébergé avec Docker.</span>
+</div>
+
+<div style="border-top: 2px solid #0D0D0B; padding-top: 16px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-weight: 700; font-size: 17px">Monorepo npm workspaces</span>
+<span style="font-size: 15px; color: #3A3833; text-wrap: pretty">Suffisant pour trois paquets, sans ajouter Turborepo ou pnpm : pas de sur-ingénierie.</span>
+</div>
+
+</div>
+</section>
+
+<!-- 07 RESULT -->
+<section class="wrap" style="padding-top: clamp(110px, 14vw, 190px); padding-bottom: 64px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 22px">
+<span class="mono" style="color: #A19D94">07 — Result</span>
+<h2 class="disp" style="font-size: clamp(44px, 7.4vw, 112px); letter-spacing: -.045em">Un MVP réaliste, <span style="color: var(--accent)">honnête sur la suite.</span></h2>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: clamp(32px, 4vw, 64px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: #A19D94; font-size: 11px">Prochaines étapes</span>
+<span class="arrow-li" style="font-size: 17px">Brancher Sentry et OpenTelemetry (traces et métriques)</span>
+<span class="arrow-li" style="font-size: 17px">Détection planifiée des dépassements de SLA</span>
+<span class="arrow-li" style="font-size: 17px">Éditeur visuel de workflows, à la place du JSON</span>
+<span class="arrow-li" style="font-size: 17px">Tests d'intégration API sur une base dédiée</span>
+<span class="arrow-li" style="font-size: 17px">Plusieurs organisations par utilisateur</span>
+</div>
+<div class="rv" style="border: 1px solid var(--accent); border-radius: 24px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px">
+<span class="mono" style="color: var(--accent); font-size: 11px">Ce que ce projet démontre</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip">Architecture backend</span><span class="chip">Multi-tenant & RBAC</span><span class="chip">Traitements asynchrones</span><span class="chip">Sécurité applicative</span><span class="chip">Tests & CI/CD</span><span class="chip">Débogage</span>
+</div>
+<p style="margin: 6px 0 0; font-size: 18px; color: #F2EFE8; text-wrap: pretty">Je sais concevoir une architecture backend robuste et évolutive, la sécuriser, la tester et la livrer en continu, puis diagnostiquer ce qui casse quand tout tourne pour de vrai.</p>
+</div>
+</div>
+<div class="rv" style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://github.com/Loicarthur/OpsFlow-SaaS-B2B-de-gestion-d-incidents-et-automatisation-des-workflows" class="btn">Voir le code sur GitHub <span aria-hidden="true">↗</span></a>
+<a href="/#projets" class="btn-ghost">Autres projets</a>
+<a href="/#contact" class="btn-ghost">Me contacter</a>
+</div>
+</section>
+
+</div>
+</body>
+</html>
